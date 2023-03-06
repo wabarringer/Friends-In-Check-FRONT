@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GameLogic from '../businessLogic/GameLogic';
+import GameLogic from '../../businessLogic/GameLogic';
 import Square from './Square';
 
 export default function Game()
