@@ -1,5 +1,5 @@
 import React from "react";
-import pawn from '../css/pawn.png';
+import pawn from '../../img/chess-pieces/pawn-white.png';
 
 export default function PieceLogo({type,color})
 {
