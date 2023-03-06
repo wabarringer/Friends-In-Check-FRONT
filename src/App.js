@@ -7,6 +7,8 @@ import Home from "./components/pages/Home/index";
 import Footer from "./components/Footer";
 
 function App() {
+
+
   return (
     <body>
       <Navigation />
