@@ -1,0 +1,76 @@
+ol, ul {
+    padding-left: 30px;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .status {
+    margin-bottom: 10px;
+  }
+  
+  .square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 50px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 50px;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
+  .kbd-navigation .square:focus {
+    background: #ddd;
+  }
+  
+  .game {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .game-info {
+    margin-left: 20px;
+  }
+  
+  .player1 {
+    background-color: aqua;
+  }
+
+  .player2 {
+    background-color: orangered;
+  }
+
+  .squareBlack {
+    background-color: rgb(59, 56, 75);
+  }
+  .squareWhite {
+    background-color: beige;
+  }
+
+  .squareSelected {
+    background-color: yellow;
+  }
+
+  .squareHighlighted {
+    background-color: slategray;
+  }
+
+  .isCaptureHighlighted{
+    background-color: red;
+  }
+
+  .pieceLogo {
+    height: 30px;
+  }
