@@ -11,7 +11,6 @@ import "./styles/chess.css";
 function App() {
   return (
     <body>
-      <Navigation />
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
