@@ -1,7 +1,15 @@
-import Piece from "../businessLogic/Piece";
+import ChessLogic from "./ChessLogic";
+import BoardSetup from "./BoardSetup";
+import Piece from "./Piece";
+const boardsetup = new BoardSetup ();
+const webSocket = new WebSocket('ws://192.168.0.153:3011');
+webSocket.onmessage = (event) => {
+  console.log("received", event)
+};
 
 class GameLogic {
     initialize() {
+      this.chessLogic = new ChessLogic();
       this.log = true;
       this.squares = []; // contains the list of square indexes where selected piece is allowed to move
       for (var i = 0; i < 64; i++)
@@ -17,9 +25,16 @@ class GameLogic {
     }
   
     setupBoard(){
-      this.squares[0].piece = new Piece('Q', 'W');
-      this.squares[2].piece = new Piece('P', 'B');
-      this.squares[4].piece = new Piece('P', 'W');
+      boardsetup.initialGame(this.squares)
+      //boardsetup.singlePiece(this.squares)
+      //boardsetup.singlePiece1(this.squares)
+      //boardsetup.singlePiece2(this.squares)
+      //boardsetup.singlePiece3(this.squares)
+
+
+      
+
+
 
       this.resetGame();
     }
@@ -79,6 +94,10 @@ class GameLogic {
       }
       else {
         // otherwise (target piece is of different color), capture the target piece
+        if (this.currentGameState.allowedSquares.indexOf(index) == -1) {
+          // if the square is not allowed to move into the finish
+          return;
+        }
         this.onPieceCaptured(square, piece);
       }
 
@@ -91,13 +110,20 @@ class GameLogic {
     }
   
     onPieceMoved(square) {
+      this.currentGameState.targetSquare=square
+      webSocket.send(JSON.stringify(this.currentGameState))
       console.log("piece moved")
       this.currentGameState.selectedSquare.piece = null;
       square.piece = this.currentGameState.selectedPiece;
       this.onPieceUnselected();
+      this.onChangeTurn();
       this.updateState();
     }
-  
+    
+    onChangeTurn() {
+      this.currentGameState.playerColor = this.currentGameState.playerColor == "W" ? "B" : "W";
+    }
+
     onPieceSelected(square, piece, index){
       if(this.selectedPiece) {
         this.onPieceUnselected();
@@ -109,7 +135,8 @@ class GameLogic {
       square.isHighlighted = true;
 
       // this is where we need to calculate the allowed moves
-      this.currentGameState.allowedSquares = [index + 1, index + 8, index + 16]
+      //this.currentGameState.allowedSquares = [index + 1, index + 8, index + 16]
+      this.currentGameState.allowedSquares = this.chessLogic.getAllowedMoves(piece.type,piece.color,this.squares,index);
       this.updateState();
       this.log && console.log(
         `onSquareClicked(${index})`,
