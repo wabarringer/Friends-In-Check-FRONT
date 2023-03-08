@@ -9,21 +9,18 @@ import Game from "./components/chess/Game";
 import "./styles/chess.css";
 
 function App() {
-
-
   return (
     <body>
-      <Navigation />
-    <div>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-      <Game></Game>
-      <Footer />
+      <div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+        <Game></Game>
+        <Footer />
+      </div>
     </body>
-    </div>
   );
 }
 
