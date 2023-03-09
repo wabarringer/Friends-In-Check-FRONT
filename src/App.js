@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
 import Home from "./components/pages/Home/index";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Game from "./components/chess/Game";
 import "./styles/chess.css";
@@ -16,15 +17,14 @@ game2.initialize("Val", "B", webSocketHandler);
 var game3 = new GameLogic();
 game3.initialize("Alice", "Expectator", webSocketHandler);
 
-console.log("initialiaing ")
+console.log("initialiaing ");
 
-const webSocket = new WebSocket('ws://localhost:3011');
+const webSocket = new WebSocket("ws://localhost:3011");
 
-function webSocketHandler (event)
-{
+function webSocketHandler(event) {
   //webSocket.send(event)
   // simullate that we are sending over the internet
-  webSocket_onmessage({data:event})
+  webSocket_onmessage({ data: event });
 }
 
 /*
@@ -45,9 +45,10 @@ webSocket.onmessage = webSocket_onmessage;
 function webSocket_onmessage(event) {
   //console.log("received", event, "setGameState", game1.setGameState)
 
-  if (event.data[0] == "{") { // ignoring events that are not moves; e.g. "connection messages"
+  if (event.data[0] == "{") {
+    // ignoring events that are not moves; e.g. "connection messages"
     var state = JSON.parse(event.data); // we deserialize the message which comes in the data property
-    console.log("received", state.originPlayer,game1.playerId,game2.playerId)
+    console.log("received", state.originPlayer, game1.playerId, game2.playerId);
     const gamesToUpdate = []; // if we have multiple games in the browser for testing reasons we want to update all
     if (game1.playerId == state.originPlayer) {
       // update board of player 2 if the move was made by player 1
@@ -70,39 +71,47 @@ function webSocket_onmessage(event) {
       gameToUpdate.setPassiveMode(false); // we remove the flag, so that we are done propagating the move from the other player
     }
   }
-};
-
-
+}
 
 function App() {
   return (
     <body>
       <div>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-        <Game 
-        playerId={game1.playerId}
-        squares={game1.squares} 
-        gameStateSetter={(setGameState) => game1.setGameState = setGameState}></Game> 
-        
-      <Game 
-        playerId={game2.playerId}
-        squares={game2.squares} 
-        gameStateSetter={(setGameState) => game2.setGameState = setGameState}></Game> 
+        <Navigation>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </Navigation>
+        <Game
+          playerId={game1.playerId}
+          squares={game1.squares}
+          gameStateSetter={(setGameState) =>
+            (game1.setGameState = setGameState)
+          }
+        ></Game>
 
-      <Game 
-        playerId={game3.playerId}
-        squares={game3.squares} 
-        gameStateSetter={(setGameState) => game3.setGameState = setGameState}></Game> 
+        <Game
+          playerId={game2.playerId}
+          squares={game2.squares}
+          gameStateSetter={(setGameState) =>
+            (game2.setGameState = setGameState)
+          }
+        ></Game>
+
+        <Game
+          playerId={game3.playerId}
+          squares={game3.squares}
+          gameStateSetter={(setGameState) =>
+            (game3.setGameState = setGameState)
+          }
+        ></Game>
 
         <Footer />
       </div>
     </body>
   );
 }
-
 
 export default App;

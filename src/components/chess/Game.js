@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import GameLogic from "../../businessLogic/GameLogic";
 import Square from "./Square";
 
-// AB: Connect socket
+// AB: Connect socket =============================================
 import io from "socket.io-client";
 //const socket = io.connect("http://localhost:3002");
 
-export default function Game({playerId, squares, gameStateSetter})
- {
+export default function Game({ playerId, squares, gameStateSetter }) {
   // AB: listen to Push_Move from socket backend
   /*
   useEffect(() => {
@@ -18,11 +17,11 @@ export default function Game({playerId, squares, gameStateSetter})
 */
 
   const [gameState, setGameState] = useState(squares);
-  gameStateSetter (setGameState)
+  gameStateSetter(setGameState);
 
   return (
     <div>
-        <div>{playerId}</div>
+      <div>{playerId}</div>
       <BoardRow start={0} end={8} squares={gameState}></BoardRow>
       <BoardRow start={8} end={16} squares={gameState}></BoardRow>
       <BoardRow start={16} end={24} squares={gameState}></BoardRow>

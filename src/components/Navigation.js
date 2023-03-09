@@ -16,7 +16,7 @@ function Navigation() {
     }
     if (currentPage === "Home") {
       return <Home />;
-    }
+    }   
   };
 
   const handlePageChange = (page) => setCurrentPage(page);

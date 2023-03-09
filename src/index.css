@@ -1,0 +1,30 @@
+:root {
+  --g1: #1f2933;
+  --g2: #3e4a51;
+  --g3: #9a9d9e;
+  --br1: #b3a49c;
+  --br2: #eee2cc;
+}
+
+* {
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  background-color: var(--g2);
+  min-height: 8vh;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+header img {
+  width: 50px;
+}
