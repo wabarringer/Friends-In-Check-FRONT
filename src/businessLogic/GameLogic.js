@@ -4,9 +4,9 @@ import Piece from "./Piece";
 import io from "socket.io-client";
 const boardsetup = new BoardSetup();
 
-// AB: Connect socket
-
+// AB: Connect socket ==================================================
 const socket = io.connect("http://localhost:3002");
+// =====================================================================
 
 class GameLogic {
   initialize() {

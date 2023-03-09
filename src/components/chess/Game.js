@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import GameLogic from "../../businessLogic/GameLogic";
 import Square from "./Square";
 
-// AB: Connect socket
+// AB: Connect socket =============================================
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:3002");
+// ================================================================
 
 export default function Game() {
-  // AB: listen to Push_Move from socket backend
+  // AB: listen to Push_Move from socket backend ==================
   useEffect(() => {
     socket.on("Push_Move", (data) => {
       GameLogic.movePiece(data.newSquare, data.oldSquare);
     });
   }, [socket]);
+// ================================================================
+
 
   var game = new GameLogic();
   game.initialize();
