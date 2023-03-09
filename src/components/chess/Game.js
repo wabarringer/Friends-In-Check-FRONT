@@ -4,23 +4,25 @@ import Square from "./Square";
 
 // AB: Connect socket
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3002");
+//const socket = io.connect("http://localhost:3002");
 
-export default function Game() {
+export default function Game({playerId, squares, gameStateSetter})
+ {
   // AB: listen to Push_Move from socket backend
+  /*
   useEffect(() => {
     socket.on("Push_Move", (data) => {
       GameLogic.movePiece(data.newSquare, data.oldSquare);
     });
   }, [socket]);
+*/
 
-  var game = new GameLogic();
-  game.initialize();
+  const [gameState, setGameState] = useState(squares);
+  gameStateSetter (setGameState)
 
-  const [gameState, setGameState] = useState(game.squares);
-  game.setGameState = setGameState;
   return (
     <div>
+        <div>{playerId}</div>
       <BoardRow start={0} end={8} squares={gameState}></BoardRow>
       <BoardRow start={8} end={16} squares={gameState}></BoardRow>
       <BoardRow start={16} end={24} squares={gameState}></BoardRow>
