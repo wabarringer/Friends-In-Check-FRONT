@@ -1,28 +1,30 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
 import Home from "./components/pages/Home/index";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./styles/chess.css";
-import MultiPlayerGame from "./components/chess/MultiPlayerGame";
+import Room from "./components/pages/Room/index";
+import Profile from "./components/pages/Profile/index";
+import Friends from "./components/pages/Friends/index";
 import Game from "./components/pages/Game/index";
 
 function App() {
   return (
     <div>
-      <Navigation />
-      <main>
+      <BrowserRouter>
+        <Header />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/room/:roomId" element={<Room />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/friends" element={<Friends />} />
           <Route path="/game" element={<Game />} />
         </Routes>
-      </main>
-      {/* <MultiPlayerGame></MultiPlayerGame> */}
+      </BrowserRouter>
       <Footer />
     </div>
   );

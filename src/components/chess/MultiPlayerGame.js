@@ -3,9 +3,10 @@ import Game from "./Game";
 import "../../styles/chess.css";
 import GameLogic from "../../businessLogic/GameLogic";
 import ScoreBoard from "./ScoreBoard";
+// AB: Imported socket.io for client side use
+import io from "socket.io-client";
 
-
-console.log("initialiaing ")
+console.log("initialiaing ");
 
 /*
 this is only an example of how to communicate with another player's client via webSockets. 
@@ -21,14 +22,12 @@ Plese note that to replace with socket.io you only have to change the secions A)
 */
 
 // A) web socket initialization
-const webSocket = new WebSocket('ws://localhost:3011');
-webSocket.onmessage = onmessageReceived;
+const socket = io("http://localhost:3002/${roomId}");
+socket.on("message", onmessageReceived);
 
-
-function messageHandler (event)
-{
+function messageHandler(event) {
   // B) this line is specific to communication via webSockets. Replace with socket.in if needed.
-  webSocket.send(event)
+  socket.emit("message", event);
 
   //
   // enable this line if you want to  simulate that we are sending over the internet but instead sending the event
@@ -55,13 +54,13 @@ game3.initialize("Alice", "Expectator", messageHandler);
 this message will be passed to GameLogic to the onSquareClicked
 */
 
-
 function onmessageReceived(event) {
   //console.log("received", event, "setGameState", game1.setGameState)
 
-  if (event.data[0] == "{") { // ignoring events that are not moves; e.g. "connection messages"
+  if (event.data[0] == "{") {
+    // ignoring events that are not moves; e.g. "connection messages"
     var state = JSON.parse(event.data); // we deserialize the message which comes in the data property
-    console.log("received", state.originPlayer,game1.playerId,game2.playerId)
+    console.log("received", state.originPlayer, game1.playerId, game2.playerId);
     const gamesToUpdate = []; // if we have multiple games in the browser for testing reasons we want to update all
     if (game1.playerId == state.originPlayer) {
       // update board of player 2 if the move was made by player 1
@@ -84,34 +83,36 @@ function onmessageReceived(event) {
       gameToUpdate.setPassiveMode(false); // we remove the flag, so that we are done propagating the move from the other player
     }
   }
-};
-
-
+}
 
 function MultiPlayerGame() {
   return (
-      <div>
-        <ScoreBoard
+    <div>
+      <ScoreBoard
         currentScoreBoard={game1.currentGameState}
-        scoreBoardSetter={(setScoreBoard) => game1.setScoreBoard = setScoreBoard}
-        ></ScoreBoard>
+        scoreBoardSetter={(setScoreBoard) =>
+          (game1.setScoreBoard = setScoreBoard)
+        }
+      ></ScoreBoard>
 
-        <Game 
+      <Game
         playerId={game1.playerId}
-        squares={game1.squares} 
-        gameStateSetter={(setGameState) => game1.setGameState = setGameState}></Game> 
-        
-      <Game 
+        squares={game1.squares}
+        gameStateSetter={(setGameState) => (game1.setGameState = setGameState)}
+      ></Game>
+
+      <Game
         playerId={game2.playerId}
-        squares={game2.squares} 
-        gameStateSetter={(setGameState) => game2.setGameState = setGameState}></Game> 
+        squares={game2.squares}
+        gameStateSetter={(setGameState) => (game2.setGameState = setGameState)}
+      ></Game>
 
-      <Game 
+      <Game
         playerId={game3.playerId}
-        squares={game3.squares} 
-        gameStateSetter={(setGameState) => game3.setGameState = setGameState}></Game> 
-
-      </div>
+        squares={game3.squares}
+        gameStateSetter={(setGameState) => (game3.setGameState = setGameState)}
+      ></Game>
+    </div>
   );
 }
 
