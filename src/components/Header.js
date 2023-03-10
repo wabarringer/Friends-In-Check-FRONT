@@ -4,10 +4,7 @@ import statsButtonLogo from "../img/stats-button.png";
 import friendsButtonLogo from "../img/friends-button.png";
 import logoutButtonLogo from "../img/logout-button.png";
 import "../index.css";
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom";
->>>>>>> dev
 
 function Header() {
   return (
