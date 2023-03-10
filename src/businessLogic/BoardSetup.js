@@ -85,12 +85,27 @@ class BoardSetup {
 
     }    
 
-    singlePiece4(squares) {
+    whitemate(squares) {
+      squares[0].piece = new Piece("K","B")
+      squares[8].piece = new Piece("P","B")
+      squares[9].piece = new Piece("P","B")
+      squares[24].piece = new Piece("Q","W")
+    }
+
+    queenProtectingKing(squares) {
+      squares[2].piece = new Piece("K","B")
+      squares[0].piece = new Piece("R","B")
+      squares[32].piece = new Piece("K","W")
+      squares[24].piece = new Piece("Q","W")
 
     }
 
-
-
+    blackmate(squares) {
+      squares[57].piece = new Piece("K","W")
+      squares[48].piece = new Piece("P","W")
+      squares[49].piece = new Piece("P","W")
+      squares[32].piece = new Piece("Q","B")
+    }
 }
 
 export default BoardSetup;
