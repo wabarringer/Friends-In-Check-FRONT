@@ -29,6 +29,12 @@ function Header() {
         </li>
 
         <li className="nav-item">
+          <Link to="/game">
+            <p>Game</p>
+          </Link>
+        </li>
+
+        <li className="nav-item">
           <Link to="/logout">
             <img src={logoutButtonLogo} alt="friends button" />
           </Link>
