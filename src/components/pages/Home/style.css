@@ -1,13 +1,40 @@
-:root {
-  --g1: #1F2933;
-  --g2: #3E4A51;
-  --g3: #9A9D9E;
-  --br1: #B3A49C;
-  --br2: #EEE2CC;
+.left,
+.right {
+  background-color: var(--br2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
 }
 
-* {
-  margin:0%;
-  box-sizing: border-box;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.middle {
+  background-color: var(--g3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#chatWindow {
+  margin: 5px 5px 0px 5px;
+  height: 80vh;
+  border: 2px solid var(--g1);
+}
+
+#chatBox {
+  margin: 5px;
+  height: 5vh;
+  border: 2px solid var(--g1);
 }

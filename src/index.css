@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
 :root {
   --g1: #1f2933;
   --g2: #3e4a51;
@@ -9,8 +11,15 @@
 * {
   margin: 0%;
   box-sizing: border-box;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--g3);
 }
 
 header {
@@ -27,4 +36,28 @@ header ul {
 
 header img {
   width: 50px;
+}
+
+footer {
+  color: var(--g1);
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+footer a {
+  color: var(--g1);
+}
+
+/* ========== flexbox classes ========== */
+.column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  flex: 1;
 }
