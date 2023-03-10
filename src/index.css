@@ -24,7 +24,7 @@ a:hover {
 }
 
 main {
-  margin-bottom: 4vh;
+  margin-bottom: 5vh;
 }
 
 header {
@@ -51,7 +51,7 @@ header img {
 footer {
   background: var(--g2);
   color: var(--g1);
-  height: 4vh;
+  height: 5vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -74,28 +74,8 @@ footer a {
 }
 
 /* =============== media query =============== */
-@media all and (max-width: 430px) {
-  main {
-    margin-bottom: 1vh;
-  }
-
-  footer {
-    background: var(--g2);
-    color: var(--g1);
-    height: 5vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-  }
-
+@media all and (max-width: 600px) {
   .column {
-    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    flex: 1;
   }
 }

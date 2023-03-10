@@ -6,26 +6,36 @@ export default function Game() {
   return (
     <div className="column">
       <div className="left">
-        <div className="container" id="oppVideo">
-          OPPONENT VIDEO
+        <div className="component">
+          <div className="opponent">
+            <div className="" id="oppVideo">
+              OPP VIDEO
+            </div>
+            <div id="oppPieces">
+              OPP PIECES
+            </div>
+          </div>
         </div>
-        <div className="container" id="oppPieces">
-          OPPONENT PIECES
-        </div>
-        <div className="container" id="userVideo">
-          USER VIDEO
-        </div>
-        <div className="container" id="userPieces">
-          USER PIECES
+        <div className="component">
+          <div className="user">
+            <div className="" id="userVideo">
+              user VIDEO
+            </div>
+            <div id="userPieces">
+              user PIECES
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="middle">
-        <div className="container" id="timer">
-          TIMER
-        </div>
-        <div className="container" id="chessboard">
-          CHESSBOARD
+        <div className="container">
+          <div id="timer">
+            timer
+          </div>
+          <div className="container" id="chessboard">
+            CHESSBOARD
+          </div>
         </div>
       </div>
 

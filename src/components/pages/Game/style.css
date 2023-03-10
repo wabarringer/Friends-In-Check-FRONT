@@ -5,8 +5,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 20%;
-  justify-content: center;
-  align-items: center;
 }
 
 .middle {
@@ -15,11 +13,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 60%;
-  justify-content: center;
-  align-items: center;
 }
 
-.container {
+.container,
+.component {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -27,7 +24,7 @@
 
 #chatWindow {
   margin: 5px 5px 0px 5px;
-  height: 50px;
+  height: 80vh;
   border: 2px solid var(--g1);
 }
 
@@ -54,86 +51,78 @@
 
 #chessboard {
   margin: 5px;
-  height: 100vh;
+  width: auto;
+  height: 100%;
   border: 2px solid var(--g1);
 }
 
-/* =============== media query =============== */
-/* =============== iphone =============== */
-@media all and (max-width: 430px) {
+.hide {
+  display: none;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
   .left {
-    background-color: var(--br2);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100vw;
     height: 20vh;
-    justify-content: center;
-    align-items: center;
   }
 
   .right {
-    background-color: var(--br2);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100vw;
     height: 15vh;
-    justify-content: center;
-    align-items: center;
   }
 
   .middle {
-    background-color: var(--g3);
-    display: flex;
-    flex-direction: row;
     width: 100vw;
     height: 52vh;
-    justify-content: center;
-    align-items: center;
   }
 
   .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+
+  .component {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50vw;
+  }
+
+  .opponent,
+  .user {
     display: flex;
     flex-direction: column;
-    width: 100%;
-  }
-
-  #chatWindow {
-    margin: 5px 5px 0px 5px;
-    height: 5vh;
     width: 100vw;
-    border: 2px solid var(--g1);
-  }
-
-  #chatBox,
-  #timer {
-    margin: 5px;
-    width: 100vw;
-    height: 3vh;
-    border: 2px solid var(--g1);
+    justify-content: center;
+    align-items: center;
   }
 
   #oppVideo,
   #userVideo {
-    margin: 5px;
-    width: 5vh;
-    height: 5vh;
-    border: 2px solid var(--g1);
+    width: 47vw;
+    height: 12vh;
   }
 
   #oppPieces,
   #userPieces {
-    margin: 5px;
-    width: 10vh;
+    width: 47vw;
     height: 5vh;
-    border: 2px solid var(--g1);
+  }
+
+  #chatWindow {
+    height: 10vh;
+    width: 100vw;
+  }
+
+  #chatBox,
+  #timer {
+    width: 100vw;
+    height: 3vh;
   }
 
   #chessboard {
-    margin: 5px;
-    height: 44vh;
+    height: 46vh;
     width: 100vw;
-    border: 2px solid var(--g1);
   }
 }
