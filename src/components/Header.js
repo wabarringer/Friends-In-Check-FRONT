@@ -4,55 +4,34 @@ import statsButtonLogo from "../img/stats-button.png";
 import friendsButtonLogo from "../img/friends-button.png";
 import logoutButtonLogo from "../img/logout-button.png";
 import "../index.css";
+import { Link } from "react-router-dom";
 
-// TODO: Find or make fitting button icons for nav-tabs
-
-function Header({ currentPage, handlePageChange }) {
+function Header() {
   return (
     <header>
       <ul className="nav-tabs">
         <li className="nav-item">
-          <a
-            href="home"
-            onClick={() => handlePageChange("Home")}
-            className={currentPage === "Home" ? "nav-link active" : "nav-link"}
-          >
+          <Link to="/">
             <img src={homeButtonLogo} alt="home button" />
-          </a>
+          </Link>
         </li>
 
         <li className="nav-item">
-          <a
-            href="#user-stats"
-            onClick={() => handlePageChange("Stats")}
-            className={currentPage === "Stats" ? "nav-link active" : "nav-link"}
-          >
+          <Link to="/profile">
             <img src={statsButtonLogo} alt="stats button" />
-          </a>
+          </Link>
         </li>
 
         <li className="nav-item">
-          <a
-            href="friends"
-            onClick={() => handlePageChange("Friends")}
-            className={
-              currentPage === "Friends" ? "nav-link active" : "nav-link"
-            }
-          >
+          <Link to="/friends">
             <img src={friendsButtonLogo} alt="friends button" />
-          </a>
+          </Link>
         </li>
 
         <li className="nav-item">
-          <a
-            href="logout"
-            onClick={() => handlePageChange("Logout")}
-            className={
-              currentPage === "Logout" ? "nav-link active" : "nav-link"
-            }
-          >
+          <Link to="/logout">
             <img src={logoutButtonLogo} alt="friends button" />
-          </a>
+          </Link>
         </li>
       </ul>
     </header>
