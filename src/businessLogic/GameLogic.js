@@ -27,6 +27,10 @@ class GameLogic {
     //boardsetup.singlePiece1(this.squares)
     //boardsetup.singlePiece2(this.squares)
     //boardsetup.singlePiece3(this.squares)
+      //boardsetup.whitemate(this.squares)
+      //boardsetup.blackmate(this.squares)
+
+      //boardsetup.queenProtectingKing(this.squares)
 
     this.resetGame();
   }
@@ -56,8 +60,26 @@ class GameLogic {
   }
 
   onFinishMove(message) {
-    this.currentGameState.currentColorTurn =
-      this.currentGameState.currentColorTurn == "W" ? "B" : "W";
+    this.currentGameState.currentColorTurn = this.currentGameState.currentColorTurn == "W" ? "B" : "W";
+    if (this.chessLogic.isCheck(this.squares, this.currentGameState.currentColorTurn)) 
+      {
+        this.currentGameState.isCheck = true;
+        if (this.chessLogic.isMate(this.squares, this.currentGameState.currentColorTurn))
+        {
+          this.currentGameState.isMate = true;
+          this.currentGameState.isGameOver = true;
+          this.currentGameState.isWhiteWin = this.currentGameState.currentColorTurn == "B"
+        }
+      }
+      else 
+      {
+        this.currentGameState.isCheck = false;
+      }
+      if (this.setScoreBoard) {
+        console.log("onFinishMove",this.playerId,this.currentGameState)
+        this.setScoreBoard(structuredClone(this.currentGameState)); 
+      }
+      console.log("onFinishMove",this.currentGameState)
   }
 
   // index is the index of the square being clicked

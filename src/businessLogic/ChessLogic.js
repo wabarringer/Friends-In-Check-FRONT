@@ -51,10 +51,10 @@ export default class ChessLogic {
                 break;                
             case "B":
                 moves = moves
-                .concat(this.getAllowedRange(color,squares, from, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[6,7]]))
-                .concat(this.getAllowedRange(color,squares, from, [[-1,1],[-2,2],[-3,3],[-4,4],[-5,5],[-6,6],[-6,7]]))
-                .concat(this.getAllowedRange(color,squares, from, [[1,-1],[2,-2],[3,-3],[4,-4],[5,-5],[6,-6],[6,-7]]))
-                .concat(this.getAllowedRange(color,squares, from, [[-1,-1],[-2,-2],[-3,-3],[-4,-4],[-5,-5],[-6,-6],[-6,-7]]))
+                .concat(this.getAllowedRange(color,squares, from, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7]]))
+                .concat(this.getAllowedRange(color,squares, from, [[-1,1],[-2,2],[-3,3],[-4,4],[-5,5],[-6,6],[-7,7]]))
+                .concat(this.getAllowedRange(color,squares, from, [[1,-1],[2,-2],[3,-3],[4,-4],[5,-5],[6,-6],[7,-7]]))
+                .concat(this.getAllowedRange(color,squares, from, [[-1,-1],[-2,-2],[-3,-3],[-4,-4],[-5,-5],[-6,-6],[-7,-7]]))
                 ;
                 break;                
             case "K":
@@ -84,20 +84,23 @@ export default class ChessLogic {
         }
         if (!lineOfAttackOnly)
         {
-            //moves = this.removeMovesThatResultInChecks(squares, from, moves);
+            moves = this.removeMovesThatResultInChecks(squares, from, moves);
         }
         return moves;
     }
 
     removeMovesThatResultInChecks(originalSquares,currentSquare,potentialMoves) {
-        const squares = originalSquares.slice();
-        for(var i = 0; i < squares.length; i++)
+        const squares = []
+        for (var i = 0; i < originalSquares.length; i++)
         {
-            squares[i].piece = originalSquares[i].piece;
+            squares.push({
+                index: i,
+                piece: originalSquares[i].piece,
+            });
         }
         const thePiece = squares[currentSquare].piece;
         //console.log("removeMovesThatResultInChecks",thePiece,currentSquare,originalSquares[currentSquare],squares[currentSquare])
-        squares[currentSquare].piece = null;  
+        squares[currentSquare].piece = null;
         const resultMoves = [];
 
         for(let i = 0; i < potentialMoves.length; i++)
@@ -105,7 +108,7 @@ export default class ChessLogic {
             var newSquare = potentialMoves[i];
             var savedPiece = squares[newSquare].piece;
             squares[newSquare].piece = thePiece;
-            const kingIndex = this.getPieceLocation(squares, thePiece.color == "B" ? "BK" : "WK");
+            const kingIndex = this.getPieceLocation(squares, "K", thePiece.color);
             if (!this.isCheck(squares, thePiece.color, kingIndex))
             {
                 resultMoves.push(newSquare);
@@ -116,6 +119,7 @@ export default class ChessLogic {
         //console.log('checking moves',potentialMoves,resultMoves);
         return resultMoves;
     }
+
 
     getAllowedRange(color,squares,from,deltas,onlyIfAttack,onlyIfEmpty) {
         var result = [];
@@ -157,20 +161,26 @@ export default class ChessLogic {
         return final;
     }
 
-    getPieceLocation(squares, pieceType) {
+    getPieceLocation(squares, pieceType, color) {
         for (let i = 0; i < 64; i++) {
             const piece = squares[i].piece;
             if (!piece)
             {
                 continue;
             }
-            if (squares[i].piece.type == pieceType)
-                return i;
+            if (piece.type == pieceType && piece.color == color)
+            {
+                return i; 
+            }
+               
         }
         return -1;
     }
 
     isCheck(squares, color, kingIndex) {
+        if (!kingIndex) {
+            kingIndex = this.getPieceLocation(squares, "K", color);
+        }
         for (let i = 0; i < 64; i++) {
             if (i == kingIndex)
             {
@@ -187,5 +197,20 @@ export default class ChessLogic {
             }
         }
         return false;
+    }
+
+    isMate(squares, color) {
+        for (let i = 0; i < 64; i++) {
+            const piece = squares[i].piece;
+            if (piece && piece.color == color)
+            {
+                const moves = this.getAllowedMoves(piece.type,piece.color,squares, i, false);
+                if (moves.length > 0) {
+                    console.log("it is not a match because on piece can move. Piece:",piece, "allowed moves", moves)
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
