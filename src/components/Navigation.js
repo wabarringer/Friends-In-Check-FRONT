@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Home from "./pages/Home/index";
+import Home from "./pages/Home";
+import Game from "./pages/Game";
 
 function Navigation() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -14,9 +15,12 @@ function Navigation() {
     if (currentPage === "Signup") {
       return <Signup />;
     }
-    if (currentPage === "Home") {
-      return <Home />;
-    }   
+    // if (currentPage === "Home") {
+    //   return <Home />;
+    // }
+    if (currentPage === "Game") {
+      return <Game />;
+    }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);

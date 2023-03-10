@@ -4,6 +4,7 @@ import statsButtonLogo from "../img/stats-button.png";
 import friendsButtonLogo from "../img/friends-button.png";
 import logoutButtonLogo from "../img/logout-button.png";
 import "../index.css";
+// TODO: IMPORT/CREATE GAME BUTTON
 
 // TODO: Find or make fitting button icons for nav-tabs
 
@@ -51,7 +52,19 @@ function Header({ currentPage, handlePageChange }) {
               currentPage === "Logout" ? "nav-link active" : "nav-link"
             }
           >
-            <img src={logoutButtonLogo} alt="friends button" />
+            <img src={logoutButtonLogo} alt="logout button" />
+          </a>
+        </li>
+
+        <li className="nav-item">
+          <a
+            href="game"
+            onClick={() => handlePageChange("Game")}
+            className={
+              currentPage === "Game" ? "nav-link active" : "nav-link"
+            }
+          >GAME
+            {/* <img src={logoutButtonLogo} alt="game button" /> */}
           </a>
         </li>
       </ul>

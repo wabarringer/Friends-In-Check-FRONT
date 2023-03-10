@@ -26,12 +26,17 @@ header {
   display: flex;
   background-color: var(--g2);
   min-height: 8vh;
+  align-items: center;
 }
 
 header ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+}
+
+header li {
+  padding: 0px 5px;
 }
 
 header img {
