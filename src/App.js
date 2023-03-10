@@ -8,22 +8,23 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./styles/chess.css";
 import MultiPlayerGame from "./components/chess/MultiPlayerGame";
+import Game from "./components/pages/Game/index";
 
 function App() {
   return (
-    <body>
-      <div>
-      <Navigation>
+    <div>
+      <Navigation />
+      <main>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/game" element={<Game />} />
         </Routes>
-        </Navigation>
-        <MultiPlayerGame></MultiPlayerGame>
-        <Footer />
-      </div>
-    </body>
+      </main>
+      {/* <MultiPlayerGame></MultiPlayerGame> */}
+      <Footer />
+    </div>
   );
 }
 

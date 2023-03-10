@@ -1,0 +1,128 @@
+.left,
+.right {
+  background-color: var(--br2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 20%;
+}
+
+.middle {
+  background-color: var(--g3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.container,
+.component {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#chatWindow {
+  margin: 5px 5px 0px 5px;
+  height: 80vh;
+  border: 2px solid var(--g1);
+}
+
+#chatBox,
+#timer {
+  margin: 5px;
+  height: 5vh;
+  border: 2px solid var(--g1);
+}
+
+#oppVideo,
+#userVideo {
+  margin: 5px;
+  height: 20vh;
+  border: 2px solid var(--g1);
+}
+
+#oppPieces,
+#userPieces {
+  margin: 5px;
+  height: 10vh;
+  border: 2px solid var(--g1);
+}
+
+#chessboard {
+  margin: 5px;
+  width: auto;
+  height: 100%;
+  border: 2px solid var(--g1);
+}
+
+.hide {
+  display: none;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  .left {
+    width: 100vw;
+    height: 20vh;
+  }
+
+  .right {
+    width: 100vw;
+    height: 15vh;
+  }
+
+  .middle {
+    width: 100vw;
+    height: 52vh;
+  }
+
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+
+  .component {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50vw;
+  }
+
+  .opponent,
+  .user {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #oppVideo,
+  #userVideo {
+    width: 47vw;
+    height: 12vh;
+  }
+
+  #oppPieces,
+  #userPieces {
+    width: 47vw;
+    height: 5vh;
+  }
+
+  #chatWindow {
+    height: 10vh;
+    width: 100vw;
+  }
+
+  #chatBox,
+  #timer {
+    width: 100vw;
+    height: 3vh;
+  }
+
+  #chessboard {
+    height: 46vh;
+    width: 100vw;
+  }
+}
