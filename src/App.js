@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import Room from "./components/pages/Room/index";
 import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
-import Game from "./components/pages/Game/index";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
           <Route path="/room/:roomId" element={<Room />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
-          <Route path="/game" element={<Game />} />
         </Routes>
       </BrowserRouter>
       <Footer />

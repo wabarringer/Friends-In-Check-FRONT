@@ -40,6 +40,7 @@ header ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 header li {
@@ -47,6 +48,10 @@ header li {
 }
 
 header img {
+  width: 40px;
+}
+
+#home-button {
   width: 50px;
 }
 

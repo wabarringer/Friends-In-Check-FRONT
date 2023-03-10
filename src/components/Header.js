@@ -11,13 +11,7 @@ function Header() {
     <header>
       <ul className="nav-tabs">
         <li className="nav-item">
-          <Link to="/">
-            <img src={homeButtonLogo} alt="home button" />
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/profile">
+          <Link to="/messages">
             <img src={statsButtonLogo} alt="stats button" />
           </Link>
         </li>
@@ -29,8 +23,14 @@ function Header() {
         </li>
 
         <li className="nav-item">
-          <Link to="/game">
-            <p>Game</p>
+          <Link to="/">
+            <img src={homeButtonLogo} alt="home button" id="home-button" />
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/profile">
+            <img src={statsButtonLogo} alt="stats button" />
           </Link>
         </li>
 
