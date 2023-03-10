@@ -16,10 +16,15 @@
 
 a {
   text-decoration: none;
+  color: var(--br2);
 }
 
 a:hover {
   color: var(--g3);
+}
+
+main {
+  margin-bottom: 4vh;
 }
 
 header {
@@ -44,8 +49,9 @@ header img {
 }
 
 footer {
+  background: var(--g2);
   color: var(--g1);
-  height: 30px;
+  height: 4vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -58,11 +64,38 @@ footer a {
   color: var(--g1);
 }
 
-/* ========== flexbox classes ========== */
+/* =============== flexbox classes =============== */
 .column {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   flex-basis: 100%;
   flex: 1;
+}
+
+/* =============== media query =============== */
+@media all and (max-width: 430px) {
+  main {
+    margin-bottom: 1vh;
+  }
+
+  footer {
+    background: var(--g2);
+    color: var(--g1);
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    flex: 1;
+  }
 }

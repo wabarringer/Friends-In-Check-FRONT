@@ -23,18 +23,117 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 }
 
 #chatWindow {
   margin: 5px 5px 0px 5px;
-  height: 80vh;
+  height: 50px;
   border: 2px solid var(--g1);
 }
 
-#chatBox {
+#chatBox,
+#timer {
   margin: 5px;
   height: 5vh;
   border: 2px solid var(--g1);
+}
+
+#oppVideo,
+#userVideo {
+  margin: 5px;
+  height: 20vh;
+  border: 2px solid var(--g1);
+}
+
+#oppPieces,
+#userPieces {
+  margin: 5px;
+  height: 10vh;
+  border: 2px solid var(--g1);
+}
+
+#chessboard {
+  margin: 5px;
+  height: 100vh;
+  border: 2px solid var(--g1);
+}
+
+/* =============== media query =============== */
+/* =============== iphone =============== */
+@media all and (max-width: 430px) {
+  .left {
+    background-color: var(--br2);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right {
+    background-color: var(--br2);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .middle {
+    background-color: var(--g3);
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 52vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #chatWindow {
+    margin: 5px 5px 0px 5px;
+    height: 5vh;
+    width: 100vw;
+    border: 2px solid var(--g1);
+  }
+
+  #chatBox,
+  #timer {
+    margin: 5px;
+    width: 100vw;
+    height: 3vh;
+    border: 2px solid var(--g1);
+  }
+
+  #oppVideo,
+  #userVideo {
+    margin: 5px;
+    width: 5vh;
+    height: 5vh;
+    border: 2px solid var(--g1);
+  }
+
+  #oppPieces,
+  #userPieces {
+    margin: 5px;
+    width: 10vh;
+    height: 5vh;
+    border: 2px solid var(--g1);
+  }
+
+  #chessboard {
+    margin: 5px;
+    height: 44vh;
+    width: 100vw;
+    border: 2px solid var(--g1);
+  }
 }

@@ -46,18 +46,6 @@ function Header({ currentPage, handlePageChange }) {
 
         <li className="nav-item">
           <a
-            href="logout"
-            onClick={() => handlePageChange("Logout")}
-            className={
-              currentPage === "Logout" ? "nav-link active" : "nav-link"
-            }
-          >
-            <img src={logoutButtonLogo} alt="logout button" />
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <a
             href="game"
             onClick={() => handlePageChange("Game")}
             className={
@@ -65,6 +53,18 @@ function Header({ currentPage, handlePageChange }) {
             }
           >GAME
             {/* <img src={logoutButtonLogo} alt="game button" /> */}
+          </a>
+        </li>
+
+        <li className="nav-item">
+          <a
+            href="logout"
+            onClick={() => handlePageChange("Logout")}
+            className={
+              currentPage === "Logout" ? "nav-link active" : "nav-link"
+            }
+          >
+            <img src={logoutButtonLogo} alt="logout button" />
           </a>
         </li>
       </ul>
