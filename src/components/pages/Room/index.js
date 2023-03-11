@@ -16,6 +16,7 @@ const Room = () => {
       <div className="left">
         <div className="component">
           <div className="opponent">
+            <div className="room-id">{roomId}</div>
             <div className="" id="oppVideo">
               OPP VIDEO
             </div>
