@@ -6,17 +6,23 @@ import "./style.css";
 
 const Room = () => {
   const { roomId } = useParams();
-  // Connect to the server using Socket.io
+  const { username } = useParams();
+  // 1) Connect to the server using Socket.io
   const socket = io("http://localhost:3002");
-  // Emit a "host" event to the server with the room ID
-  socket.emit("host", roomId);
-  console.log(roomId);
+  // 2) Emit a "host" event to the server with the room ID
+  socket.emit("host", { roomId, username });
+  // 3) Emit a join event to the server when a user joins a room
+  socket.emit("join", { roomId, username });
+  // 3) Listen for the user-joined event when a new user joins the room
+  socket.on("user-joined", ({ username }) => {
+    console.log(`${username} has joined the room`);
+  });
+
   return (
     <div className="column">
       <div className="left">
         <div className="component">
           <div className="opponent">
-            <div className="room-id">{roomId}</div>
             <div className="" id="oppVideo">
               OPP VIDEO
             </div>

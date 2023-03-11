@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../../utils/API.js";
 
 const Login = (props) => {
@@ -29,13 +30,18 @@ const Login = (props) => {
       console.log(data);
       if (data.token) {
         props.setToken(data.token);
-        props.setLoggedIn(true);
+        props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
       }
       localStorage.setItem("token", data.token);
       setLoginEmail("");
       setLoginPassword("");
     });
+  };
+  const navigate = useNavigate();
+  const handleGoToSignup = (e) => {
+    e.preventDefault();
+    navigate("/signup");
   };
 
   return (
@@ -56,6 +62,7 @@ const Login = (props) => {
         />
         <button>Login</button>
       </form>
+      <button onClick={handleGoToSignup}>Signup</button>
     </div>
   );
 };
