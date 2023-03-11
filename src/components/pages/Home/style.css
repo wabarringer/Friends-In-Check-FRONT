@@ -3,11 +3,26 @@ section {
   display: flex;
 }
 
-.component {
+.box {
+  display: flex;
+  align-items: center;
   height: 40vh;
   width: 40vh;
   margin: 5px;
   border: 2px solid var(--g1);
+}
+
+a {
+  height: auto;
+  width: 100%;
+}
+
+button {
+  border: none;
+  background-color: var(--br2);
+  height: 7vh;
+  width: 100%;
+  font-size: 18px;
 }
 
 /* =============== mobile =============== */
@@ -17,7 +32,11 @@ section {
     justify-content: space-around;
   }
 
-  .component {
+  button {
+    height: 5vh;
+  }
+
+  .box {
     height: 30vh;
     width: 30vh;
   }
