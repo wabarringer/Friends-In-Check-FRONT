@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const Home = () => {
   const [roomId, setRoomId] = useState("");
@@ -13,12 +14,18 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <Link to={`/room/${roomId}`}>
-        <button onClick={handleHost}>Host a Room</button>
-      </Link>
-      <button onClick={() => console.log("Join a Room")}>Join a Room</button>
-    </div>
+    <section>
+      <div className="column">
+        <div className="component">
+          <Link to={`/room/${roomId}`}>
+          <button onClick={handleHost}>Host a Room</button>
+        </Link>
+        </div>
+        <div className="component">
+          <button onClick={() => console.log("Join a Room")}>Join a Room</button>
+        </div>
+      </div>  
+    </section>
   );
 };
 

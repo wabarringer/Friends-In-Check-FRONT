@@ -1,0 +1,24 @@
+section {
+  height: 87vh;
+  display: flex;
+}
+
+.component {
+  height: 40vh;
+  width: 40vh;
+  margin: 5px;
+  border: 2px solid var(--g1);
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  section {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .component {
+    height: 30vh;
+    width: 30vh;
+  }
+}
