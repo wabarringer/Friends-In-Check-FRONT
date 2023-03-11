@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
@@ -8,14 +8,43 @@ import Footer from "./components/Footer";
 import Room from "./components/pages/Room/index";
 import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
+import API from "./utils/API";
 
 function App() {
-  const [roomId, setRoomId] = useState("");
+  const [token, setToken] = useState("");
+  const [userId, setUserId] = useState(0);
+  const [username, setUsername] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // Login
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    if (savedToken) {
+      API.isValidToken(savedToken).then((tokenData) => {
+        if (tokenData.isValid) {
+          setToken(savedToken);
+          setUserId(tokenData.user.id);
+          setUsername(tokenData.user.username);
+          setIsLoggedIn(true);
+        } else {
+          localStorage.removeItem("token");
+        }
+      });
+    }
+  }, []);
 
+  // Logout
+  const logout = () => {
+    setToken("");
+    setUserId(0);
+    setIsLoggedIn(false);
+    localStorage.removeItem("token");
+  };
+
+  // AB: Room ID creation
+  const [roomId, setRoomId] = useState("");
   useEffect(() => {
     handleHost();
   }, []);
-
   const handleHost = () => {
     const genId = Math.floor(Math.random() * 100000);
     setRoomId(genId);
@@ -24,12 +53,46 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
         <Routes>
-          <Route path="/" element={<Home roomId={roomId} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path={`/room/${roomId}`} element={<Room />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                isLoggedIn={isLoggedIn}
+                token={token}
+                userId={userId}
+                username={username}
+                roomId={roomId}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setToken={setToken}
+                setUserId={setUserId}
+                setUsername={setUsername}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <Signup
+                setToken={setToken}
+                setUserId={setUserId}
+                setUsername={setUsername}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path={`/room/${roomId}`}
+            element={<Room username={username} />}
+          />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
         </Routes>
