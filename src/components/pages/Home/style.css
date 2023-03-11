@@ -10,6 +10,7 @@ section {
   width: 40vh;
   margin: 5px;
   border: 2px solid var(--g1);
+  border-radius: 10px;
 }
 
 a {
