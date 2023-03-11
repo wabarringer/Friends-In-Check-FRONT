@@ -23,6 +23,7 @@ button {
   height: 7vh;
   width: 100%;
   font-size: 18px;
+  font-weight: bold;
 }
 
 /* =============== mobile =============== */

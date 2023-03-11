@@ -21,6 +21,7 @@ const Home = () => {
           <button onClick={handleHost}>Host a Room</button>
         </Link>
         </div>
+        
         <div className="box">
           <button onClick={() => console.log("Join a Room")}>Join a Room</button>
         </div>

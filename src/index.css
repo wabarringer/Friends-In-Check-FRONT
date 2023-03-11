@@ -77,22 +77,6 @@ footer a {
   color: var(--br2);
 }
 
-footer {
-  background: var(--g2);
-  color: var(--g1);
-  height: 5vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-}
-
-footer a {
-  color: var(--g1);
-}
-
 /* =============== flexbox classes =============== */
 .column {
   display: flex;
