@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import API from "../../../utils/API";
 import "../Profile/style.css";
 
-const Profile = () => {
+const Profile = (props) => {
+
+
   return (
     <div className="column">
       <div className="left">
