@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../../../utils/API";
+import "../Signup/style.css";
 
 const Signup = (props) => {
   const [signupEmail, setSignupEmail] = useState("");
@@ -43,30 +44,34 @@ const Signup = (props) => {
     });
   };
   return (
-    <div className="Signup">
-      <form onSubmit={handleSignupSubmit}>
-        <input
-          name="signupEmail"
-          value={signupEmail}
-          onChange={handleInputChange}
-          placeholder="email"
-        />
-        <input
-          name="signupUsername"
-          value={signupUsername}
-          onChange={handleInputChange}
-          placeholder="username"
-        />
-        <input
-          name="signupPassword"
-          value={signupPassword}
-          onChange={handleInputChange}
-          placeholder="password"
-          type="password"
-        />
-        <button>Signup</button>
-      </form>
+    <section>
+    <div className="column">
+      <div className="Signup">
+        <form onSubmit={handleSignupSubmit}>
+          <input
+            name="signupEmail"
+            value={signupEmail}
+            onChange={handleInputChange}
+            placeholder="email"
+          />
+          <input
+            name="signupUsername"
+            value={signupUsername}
+            onChange={handleInputChange}
+            placeholder="username"
+          />
+          <input
+            name="signupPassword"
+            value={signupPassword}
+            onChange={handleInputChange}
+            placeholder="password"
+            type="password"
+          />
+          <button>SIGNUP</button>
+        </form>
+      </div>
     </div>
+  </section>
   );
 };
 
