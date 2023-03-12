@@ -56,7 +56,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
         <Routes>
           <Route
-            path="/"
+            path="/home"
             element={
               <Home
                 isLoggedIn={isLoggedIn}

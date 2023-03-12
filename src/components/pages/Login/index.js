@@ -63,6 +63,7 @@ const Login = (props) => {
               placeholder="password"
               type="password"
             />
+            {/* TODO: ADD HANDLE TO GO TO HOME */}
             <button>LOGIN</button>
           </form>
           

@@ -18,7 +18,7 @@ const Home = ({ roomId, isLoggedIn }) => {
         <div className="box">
           <Link to={`/room/${roomId}`}>
             <img src={chessboardHome} alt="chessboard with pawn" />
-            <button>Host a Room</button>
+            <button>HOST A ROOM</button>
           </Link>
         </div>
 

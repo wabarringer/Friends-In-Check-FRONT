@@ -21,7 +21,7 @@ section {
   border-radius: 10px;
 }
 
-.box img:hover {
+.box:hover {
   opacity: 0.75;
 }
 

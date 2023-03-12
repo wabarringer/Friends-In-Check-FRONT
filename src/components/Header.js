@@ -24,7 +24,7 @@ function Header(props) {
         </li>
 
         <li className="nav-item">
-          <Link to="/">
+          <Link to="/home">
             <img src={homeButtonLogo} alt="home button" id="home-button" />
           </Link>
         </li>
