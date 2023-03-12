@@ -11,7 +11,7 @@ section {
   justify-content: top;
   align-items: center;
   height: 40vh;
-  width: 40vw;
+  width: 30vw;
   padding: 20px 0px;
   border-radius: 10px;
 }
@@ -23,10 +23,11 @@ section {
 }
 
 .Login input {
-  width: 30vw;
+  width: 20vw;
   margin-bottom: 5px;
   border-radius: 5px;
   border: none;
+  font-size: 14px;
 }
 
 .Login input:focus {
@@ -39,7 +40,7 @@ section {
   background-color: white;
   border-radius: 5px;
   height: 7vh;
-  width: 30vw;
+  width: 20vw;
   font-size: 16px;
   font-weight: bold;
 }
@@ -52,7 +53,7 @@ section {
   margin-top: 30px;
   border-top: 2px solid black;
   width: 100%;
-  padding: 30px;
+  padding: 40px;
 }
 
 /* =============== mobile =============== */
@@ -62,14 +63,24 @@ section {
     justify-content: space-around;
   }
 
-  button {
-    height: 5vh;
-    width: 30vh;
+  .Login {
+    min-height: 200px;
+    min-width: 300px;
+    margin: 10px;
   }
 
-  .Login {
-    height: 30vh;
-    width: 30vh;
-    margin: 10px;
+  .Login input {
+    min-width: 250px;
+  }
+
+  .Login button,
+  #createAcct button {
+    min-height: 10px;
+    min-width: 250px;
+  }
+
+  #createAcct {
+    margin-top: 20px;
+    padding: 40px;
   }
 }
