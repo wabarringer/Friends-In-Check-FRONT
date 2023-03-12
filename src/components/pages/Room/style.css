@@ -1,6 +1,6 @@
 .left,
 .right {
-  background-color: var(--br2);
+  /* background-color: var(--br2); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -8,7 +8,7 @@
 }
 
 .middle {
-  background-color: var(--g3);
+  /* background-color: var(--g3); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

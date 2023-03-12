@@ -3,16 +3,17 @@ import homeButtonLogo from "../img/home-button.png";
 import statsButtonLogo from "../img/stats-button.png";
 import friendsButtonLogo from "../img/friends-button.png";
 import logoutButtonLogo from "../img/logout-button.png";
+import messagesButtonLogo from "../img/messages-button.png";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <header>
       <ul className="nav-tabs">
         <li className="nav-item">
           <Link to="/messages">
-            <img src={statsButtonLogo} alt="stats button" />
+            <img src={messagesButtonLogo} alt="messages button" />
           </Link>
         </li>
 
@@ -30,12 +31,12 @@ function Header() {
 
         <li className="nav-item">
           <Link to="/profile">
-            <img src={statsButtonLogo} alt="stats button" />
+            <img src={statsButtonLogo} alt="profile button" />
           </Link>
         </li>
 
         <li className="nav-item">
-          <Link to="/logout">
+          <Link onClick={props.logout}>
             <img src={logoutButtonLogo} alt="friends button" />
           </Link>
         </li>

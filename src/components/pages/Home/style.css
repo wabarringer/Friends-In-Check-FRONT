@@ -1,0 +1,45 @@
+section {
+  height: 87vh;
+  display: flex;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  height: 40vh;
+  width: 40vh;
+  margin: 5px;
+  border: 2px solid var(--g1);
+  border-radius: 10px;
+}
+
+a {
+  height: auto;
+  width: 100%;
+}
+
+button {
+  border: none;
+  background-color: var(--br2);
+  height: 7vh;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  section {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button {
+    height: 5vh;
+  }
+
+  .box {
+    height: 30vh;
+    width: 30vh;
+  }
+}

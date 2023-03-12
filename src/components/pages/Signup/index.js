@@ -33,7 +33,7 @@ const Signup = (props) => {
       console.log(data);
       if (data.token) {
         props.setToken(data.token);
-        props.setLoggedIn(true);
+        props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
       }
       localStorage.setItem("token", data.token);

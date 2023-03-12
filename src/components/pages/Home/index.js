@@ -1,14 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./style.css";
 
-const Home = ({ roomId }) => {
+const Home = ({ roomId, isLoggedIn }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
-    <div>
-      <Link to={`/room/${roomId}`}>
-        <button>Host a Room</button>
-      </Link>
-      <button onClick={() => console.log("Join a Room")}>Join a Room</button>
-    </div>
+    <section>
+      <div className="column">
+        <div className="box">
+          <Link to={`/room/${roomId}`}>
+            <button>Host a Room</button>
+          </Link>
+        </div>
+
+        <div className="box">
+          <button>Join a Room</button>
+        </div>
+      </div>
+    </section>
   );
 };
 
