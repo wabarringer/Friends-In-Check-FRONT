@@ -12,15 +12,21 @@ function Header(props) {
     <header>
       <ul className="nav-tabs">
         <li className="nav-item">
-          <Link to="/messages">
-            <img src={messagesButtonLogo} alt="messages button" />
-          </Link>
+          {props.isLoggedIn
+            ?<Link to="/messages">
+              <img src={messagesButtonLogo} alt="messages button" />
+            </Link>
+            :<Link to="/login"></Link>
+          }
         </li>
 
         <li className="nav-item">
-          <Link to="/friends">
-            <img src={friendsButtonLogo} alt="friends button" />
-          </Link>
+          {props.isLoggedIn
+            ?<Link to="/friends">
+              <img src={friendsButtonLogo} alt="friends button" />
+            </Link>
+            :<Link to="/login"></Link>
+          }
         </li>
 
         <li className="nav-item">
@@ -30,15 +36,21 @@ function Header(props) {
         </li>
 
         <li className="nav-item">
-          <Link to="/profile">
-            <img src={statsButtonLogo} alt="profile button" />
-          </Link>
+          {props.isLoggedIn
+            ?<Link to="/profile">
+              <img src={statsButtonLogo} alt="profile button" />
+            </Link>
+            :<Link to="/login"></Link>
+          }
         </li>
 
         <li className="nav-item">
-          <Link onClick={props.logout}>
-            <img src={logoutButtonLogo} alt="friends button" />
-          </Link>
+          {props.isLoggedIn
+            ?<Link onClick={props.logout}>
+              <img src={logoutButtonLogo} alt="logout button" />
+            </Link>
+            :<Link to="/login"></Link>
+          }
         </li>
       </ul>
     </header>

@@ -6,6 +6,7 @@ import '../Login/style.css';
 const Login = (props) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,13 +34,16 @@ const Login = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
+        navigate("/home")
+      } else {
+        alert("Incorrect email address or password!")
       }
       localStorage.setItem("token", data.token);
       setLoginEmail("");
       setLoginPassword("");
     });
   };
-  const navigate = useNavigate();
+
   const handleGoToSignup = (e) => {
     e.preventDefault();
     navigate("/signup");
