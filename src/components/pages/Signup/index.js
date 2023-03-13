@@ -37,10 +37,11 @@ const Signup = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
-        navigate("/home")
-      } else if (signupEmail || signupUsername) {
-        alert("Email address or username is already taken!")
-      } 
+        navigate("/home");
+      }
+      // else if (signupEmail || signupUsername) {
+      //   alert("Email address or username is already taken!")
+      // }
       localStorage.setItem("token", data.token);
       setSignupEmail("");
       setSignupUsername("");
@@ -49,33 +50,33 @@ const Signup = (props) => {
   };
   return (
     <section>
-    <div className="column">
-      <div className="Signup">
-        <form onSubmit={handleSignupSubmit}>
-          <input
-            name="signupEmail"
-            value={signupEmail}
-            onChange={handleInputChange}
-            placeholder="email"
-          />
-          <input
-            name="signupUsername"
-            value={signupUsername}
-            onChange={handleInputChange}
-            placeholder="username"
-          />
-          <input
-            name="signupPassword"
-            value={signupPassword}
-            onChange={handleInputChange}
-            placeholder="password"
-            type="password"
-          />
-          <button>SIGNUP</button>
-        </form>
+      <div className="column">
+        <div className="Signup">
+          <form onSubmit={handleSignupSubmit}>
+            <input
+              name="signupEmail"
+              value={signupEmail}
+              onChange={handleInputChange}
+              placeholder="email"
+            />
+            <input
+              name="signupUsername"
+              value={signupUsername}
+              onChange={handleInputChange}
+              placeholder="username"
+            />
+            <input
+              name="signupPassword"
+              value={signupPassword}
+              onChange={handleInputChange}
+              placeholder="password"
+              type="password"
+            />
+            <button>SIGNUP</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
