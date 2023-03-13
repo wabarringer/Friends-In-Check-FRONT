@@ -27,7 +27,7 @@ const API = {
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
-  }
+  },
 };
 
 export default API;
