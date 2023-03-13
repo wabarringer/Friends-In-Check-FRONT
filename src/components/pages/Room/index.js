@@ -58,16 +58,16 @@ const Room = (props) => {
                 user video
               </div>
               <div id="userPieces">
-                user pieces
+                user pieces captured
               </div>
             </div>
             <div id="opponent">
               <p>opponent username</p>
               <div className="" id="oppVideo">
-                user video
+                opp video
               </div>
               <div id="oppPieces">
-                user pieces
+                opp pieces captured
               </div>
             </div>
           </div>

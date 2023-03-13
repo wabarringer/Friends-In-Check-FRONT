@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../../utils/API";
 import "../Signup/style.css";
 
@@ -37,6 +38,7 @@ const Signup = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
+        alert("Successfully created account!");
         navigate("/home");
       } else if (signupEmail || signupUsername) {
         alert("Email address or username is already taken!");
