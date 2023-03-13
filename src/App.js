@@ -10,7 +10,7 @@ import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
 import API from "./utils/API";
 
-// Import and init socket globally one time
+// Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
 const socket = io("http://localhost:3002");
