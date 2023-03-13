@@ -161,5 +161,6 @@
   #chessboard {
     height: 46vh;
     width: 100vw;
+    margin: 0px;
   }
 }
