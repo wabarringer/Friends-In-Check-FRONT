@@ -1,0 +1,86 @@
+section {
+  height: 87vh;
+  display: flex;
+  background-color: var(--g1);
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--g3);
+  justify-content: top;
+  align-items: center;
+  height: 40vh;
+  width: 30vw;
+  padding: 20px 0px;
+  border-radius: 10px;
+}
+
+.Login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Login input {
+  width: 20vw;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+}
+
+.Login input:focus {
+  outline: 2px solid var(--g2);
+}
+
+.Login button,
+#createAcct button {
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  height: 7vh;
+  width: 20vw;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#createAcct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 2px solid black;
+  width: 100%;
+  padding: 40px;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  section {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .Login {
+    min-height: 200px;
+    min-width: 300px;
+    margin: 10px;
+  }
+
+  .Login input {
+    min-width: 250px;
+  }
+
+  .Login button,
+  #createAcct button {
+    min-height: 10px;
+    min-width: 250px;
+  }
+
+  #createAcct {
+    margin-top: 20px;
+    padding: 40px;
+  }
+}

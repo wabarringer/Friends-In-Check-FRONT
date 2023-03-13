@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../Friends/style.css';
 
 const Friends = () => {
   return (

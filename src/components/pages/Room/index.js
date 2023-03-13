@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import "../../../styles/chess.css";
 import MultiPlayerGame from "../../chess/MultiPlayerGame";
 import io from "socket.io-client";
-import "./style.css";
+import "../Room/style.css";
 
 const Room = () => {
   const { roomId } = useParams();
@@ -23,6 +23,7 @@ const Room = () => {
       <div className="left">
         <div className="component">
           <div className="opponent">
+            <div className="room-id">{roomId}</div>
             <div className="" id="oppVideo">
               OPP VIDEO
             </div>

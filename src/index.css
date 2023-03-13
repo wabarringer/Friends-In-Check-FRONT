@@ -31,7 +31,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--g2);
+  background-color: var(--g1);
   min-height: 8vh;
   align-items: center;
 }
@@ -64,7 +64,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--g2);
+  background-color: var(--g1);
   position: absolute;
   bottom: 0;
   width: 100%;

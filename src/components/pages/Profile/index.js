@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "./style.css";
+import "../Profile/style.css";
+
 
 const Profile = () => {
   const [imageSelected, setImageSelected] = useState("");
