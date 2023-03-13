@@ -1,22 +1,48 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "../../../styles/chess.css";
 import MultiPlayerGame from "../../chess/MultiPlayerGame";
-import io from "socket.io-client";
+
 import "../Room/style.css";
 
-const Room = () => {
+const Room = (props) => {
   const { roomId } = useParams();
-  const { username } = useParams();
-  // 1) Connect to the server using Socket.io
-  const socket = io("http://localhost:3002");
-  // 2) Emit a "host" event to the server with the room ID
-  socket.emit("host", { roomId, username });
-  // 3) Emit a join event to the server when a user joins a room
-  socket.emit("join", { roomId, username });
-  // 3) Listen for the user-joined event when a new user joins the room
-  socket.on("user-joined", ({ username }) => {
-    console.log(`${username} has joined the room`);
+  console.log(roomId);
+  // Emit a join event to the server when a user joins a room on component mount
+  useEffect(() => {
+    props.socket.emit("in-room", roomId);
+    props.socket.on("user array", (receivedArr) => {
+      console.log(receivedArr);
+    });
+  }, []);
+
+  const [msgInputted, setMsgInputted] = useState("");
+  const [messages, setMessages] = useState([]);
+
+  //   returning messages are sent with the event "return-message". We then use the spread op "..." to copy the array so we can map over it with our new message.
+  props.socket.on("return-message", (msg) => {
+    setMessages([...messages, msg]);
   });
+
+  props.socket.on("user-joined", (userFromSocket) => {
+    console.log(`${userFromSocket} has joined the room`);
+  });
+
+  //   form control
+  const handleChatInput = (e) => {
+    e.preventDefault();
+    setMsgInputted(e.target.value);
+  };
+
+  //   emitting the event "send-message" with our username and message from form below
+  const sendMsg = (e) => {
+    e.preventDefault();
+    props.socket.emit("send-message", {
+      username: props.username,
+      message: msgInputted,
+    });
+    console.log(msgInputted);
+  };
 
   return (
     <div className="column">
@@ -44,7 +70,7 @@ const Room = () => {
         <div className="container">
           <div id="timer">timer</div>
           <div className="container" id="chessboard">
-            <MultiPlayerGame roomId={roomId} />
+            <MultiPlayerGame socket={props.socket} roomId={roomId} />
           </div>
         </div>
       </div>
@@ -52,8 +78,20 @@ const Room = () => {
       <div className="right">
         <div className="container" id="chatWindow">
           CHAT WINDOW
+          {/* map over state arr to show messages on page */}
+          {messages.map((msg) => (
+            <p>{msg}</p>
+          ))}
         </div>
         <div className="container" id="chatBox">
+          {/* form to send message */}
+          <form onSubmit={sendMsg}>
+            <input
+              type="text"
+              onChange={handleChatInput}
+              value={msgInputted}
+            ></input>
+          </form>
           CHAT BOX
         </div>
       </div>

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import '../Home/style.css';
+import "../Home/style.css";
 import chessboardHome from "../../../img/chessboard-home.png";
 
-const Home = ({ roomId, isLoggedIn }) => {
+const Home = ({ roomId, isLoggedIn, socket, username }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,19 +12,48 @@ const Home = ({ roomId, isLoggedIn }) => {
     }
   }, [isLoggedIn, navigate]);
 
+  const [joinRoom, setJoinRoom] = useState("");
+
+  const joinByRoomId = (e) => {
+    e.preventDefault();
+    socket.emit("join", { roomId, username });
+    navigate(`/room/${roomId}`);
+  };
+
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    setJoinRoom(e.target.value);
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(joinRoom);
+    socket.emit("join", { roomId: joinRoom, username });
+    navigate(`/room/${joinRoom}`);
+  };
+
   return (
     <section>
       <div className="column">
         <div className="box">
-          <Link to={`/room/${roomId}`}>
+          <div onClick={joinByRoomId}>
             <img src={chessboardHome} alt="chessboard with pawn" />
             <button>HOST A ROOM</button>
-          </Link>
+          </div>
         </div>
 
         <div className="box">
-          <img src={chessboardHome} alt="chessboard with a pawn"/>
-          <button>JOIN A ROOM</button>
+          <form onSubmit={onSubmitHandler}>
+            <input
+              type="number"
+              value={joinRoom}
+              id="fname"
+              placeholder="Room Id"
+              onChange={handleInputChange}
+            />
+            <img src={chessboardHome} alt="chessboard with a pawn" />
+            <button type="submit">JOIN A ROOM</button>
+          </form>
         </div>
       </div>
     </section>
