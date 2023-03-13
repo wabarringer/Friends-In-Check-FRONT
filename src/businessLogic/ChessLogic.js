@@ -89,6 +89,22 @@ export default class ChessLogic {
         return moves;
     }
 
+    isPromotion(square){
+        var rowNumber = Math.trunc(square.index / 8);
+        var piece = square.piece;
+        var color = piece.color;
+        var pieceType = piece.type;
+        if (pieceType != "P") {
+          return;
+        }
+        if (rowNumber == 0 && color == "W" ||
+          rowNumber == 7 && color == "B")
+        {
+            return true;
+        }
+        return false;
+      }
+    
     removeMovesThatResultInChecks(originalSquares,currentSquare,potentialMoves) {
         const squares = []
         for (var i = 0; i < originalSquares.length; i++)

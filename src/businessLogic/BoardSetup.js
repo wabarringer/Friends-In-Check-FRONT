@@ -106,6 +106,15 @@ class BoardSetup {
       squares[49].piece = new Piece("P","W")
       squares[32].piece = new Piece("Q","B")
     }
+
+    pawnPromotion(squares) {
+      squares[57].piece = new Piece("K","W")
+      squares[8].piece = new Piece("P","W")
+      squares[32].piece = new Piece("K","B")
+      squares[33].piece = new Piece("P","B")
+      squares[25].piece = new Piece("P","B")
+      squares[41].piece = new Piece("B","B")
+    }
 }
 
 export default BoardSetup;
