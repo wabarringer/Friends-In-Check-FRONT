@@ -25,90 +25,43 @@ const Profile = () => {
   };
 
   return (
-    // <div>
-    //   <input
-    //     type="file"
-    //     onChange={(event) => {
-    //       setImageSelected(event.target.files[0]);
-    //     }}
-    //   />
-    //   <button onClick={uploadImage}>Save</button>
-    //   {publicPhotoUrl && (
-    //     <img src={publicPhotoUrl} alt="Uploaded image" />
-    //   )}
-    // </div>
     <div className="column">
-          <div>
-      <input
-        type="file"
-        onChange={(event) => {
-          setImageSelected(event.target.files[0]);
-        }}
-      />
-      <button onClick={uploadImage}>Save</button>
-      {/* {publicPhotoUrl
-       && (
-        <img src={publicPhotoUrl} alt="Uploaded image" />
-      )
-      } */}
-    </div>
       <div className="left">
         <div id="profileSection">
           <div>
             <h3>USERNAME</h3>
             <div id="avatar">
-                {publicPhotoUrl
-                && (
-                  <img src={publicPhotoUrl} alt="Uploaded image" />
-                )
-      }            
-      </div>
+              <label htmlFor="profile-image">
+                {publicPhotoUrl ? (
+                  <img src={publicPhotoUrl} id="setProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                ) : (
+                  <img src="profile.jpg" id="starterProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                )}
+              </label>
+              <input
+                type="file"
+                id="profile-image"
+                style={{ display: "none" }}
+                onChange={(event) => {
+                  setImageSelected(event.target.files[0]);
+                }}
+              />
+            </div>
+            <button onClick={uploadImage}>Save</button>
+
           </div>
           
-          <div id="userBio">
-            USER BIO
-          </div>
+          <div id="userBio">USER BIO</div>
         </div>
-
       </div>
-
+      <div className="middle">
+        {/* <button onClick={uploadImage}>Save</button> */}
+      </div>
       <div className="right">
-        <div id="feedBody">
-          STATS FEED
-        </div>
+        <div id="feedBody">STATS FEED</div>
       </div>
     </div>
   );
-}
-
-// const Profile = () => {
-//   return (
-//     <div className="column">
-//       <div className="left">
-//         <div id="profileSection">
-//           <div>
-//             <h3>USERNAME</h3>
-//             <div id="avatar">
-//               IMAGE
-//             </div>
-//           </div>
-          
-//           <div id="userBio">
-//             USER BIO
-//           </div>
-//         </div>
-
-//       </div>
-
-//       <div className="right">
-//         <div id="feedBody">
-//           STATS FEED
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-
+};
 
 export default Profile;
