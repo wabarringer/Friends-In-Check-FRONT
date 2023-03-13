@@ -10,6 +10,11 @@ import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
 import API from "./utils/API";
 
+// Import and init socket globally one time
+import io from "socket.io-client";
+
+const socket = io("http://localhost:3002");
+
 function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
@@ -59,6 +64,7 @@ function App() {
             path="/home"
             element={
               <Home
+                socket={socket}
                 isLoggedIn={isLoggedIn}
                 token={token}
                 userId={userId}
@@ -90,8 +96,8 @@ function App() {
             }
           />
           <Route
-            path={`/room/${roomId}`}
-            element={<Room username={username} />}
+            path={`/room/:roomId`}
+            element={<Room socket={socket} username={username} />}
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
