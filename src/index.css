@@ -41,6 +41,7 @@ header ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0px;
 }
 
 header li {
@@ -75,6 +76,10 @@ footer {
 footer a {
   text-decoration: none;
   color: var(--br2);
+}
+
+input:focus {
+  outline: 2px solid var(--g2);
 }
 
 /* =============== flexbox classes =============== */

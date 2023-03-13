@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Room from "./components/pages/Room/index";
 import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
+import Messages from "./components/pages/Messages/index";
 import API from "./utils/API";
 
 // Import and init socket globally one time
@@ -101,6 +102,17 @@ function App() {
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
+          <Route
+            path="/messages"
+            element={
+              <Messages
+                isLoggedIn={isLoggedIn}
+                token={token}
+                userId={userId}
+                username={username}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
       <Footer />

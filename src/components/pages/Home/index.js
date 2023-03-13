@@ -36,24 +36,30 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     <section>
       <div className="column">
         <div className="box">
-          <div onClick={joinByRoomId}>
+          <div>
             <img src={chessboardHome} alt="chessboard with pawn" />
+          </div>
+          <div id="hostRoomDiv" onClick={joinByRoomId}>
             <button>HOST A ROOM</button>
           </div>
         </div>
 
         <div className="box">
-          <form onSubmit={onSubmitHandler}>
-            <input
-              type="number"
-              value={joinRoom}
-              id="fname"
-              placeholder="Room Id"
-              onChange={handleInputChange}
-            />
+          <div>
             <img src={chessboardHome} alt="chessboard with a pawn" />
-            <button type="submit">JOIN A ROOM</button>
-          </form>
+          </div>
+          <div id="joinFormDiv">
+            <form onSubmit={onSubmitHandler}>
+              <input
+                type="number"
+                value={joinRoom}
+                id="fname"
+                placeholder="Room ID"
+                onChange={handleInputChange}
+              />
+              <button type="submit">JOIN A ROOM</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

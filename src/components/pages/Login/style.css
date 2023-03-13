@@ -10,7 +10,7 @@ section {
   background-color: var(--g3);
   justify-content: top;
   align-items: center;
-  height: 40vh;
+  min-height: 40vh;
   width: 30vw;
   padding: 20px 0px;
   border-radius: 10px;
@@ -28,10 +28,6 @@ section {
   border-radius: 5px;
   border: none;
   font-size: 14px;
-}
-
-.Login input:focus {
-  outline: 2px solid var(--g2);
 }
 
 .Login button,
