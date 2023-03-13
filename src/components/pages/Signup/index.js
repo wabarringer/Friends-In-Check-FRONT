@@ -38,10 +38,9 @@ const Signup = (props) => {
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
         navigate("/home");
+      } else if (signupEmail || signupUsername) {
+        alert("Email address or username is already taken!");
       }
-      // else if (signupEmail || signupUsername) {
-      //   alert("Email address or username is already taken!")
-      // }
       localStorage.setItem("token", data.token);
       setSignupEmail("");
       setSignupUsername("");
