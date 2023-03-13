@@ -23,6 +23,7 @@ class GameLogic {
 
   setupBoard() {
     boardsetup.initialGame(this.squares);
+    //boardsetup.pawnPromotion(this.squares);
     //boardsetup.singlePiece(this.squares)
     //boardsetup.singlePiece1(this.squares)
     //boardsetup.singlePiece2(this.squares)
@@ -189,9 +190,17 @@ class GameLogic {
     this.log("piece moved");
     this.currentGameState.selectedSquare.piece = null;
     square.piece = this.currentGameState.selectedPiece;
+    this.checkForPromotion(square);
     this.onPieceUnselected();
     this.updateState();
     this.onFinishMove();
+  }
+
+  checkForPromotion(square){
+    if (this.chessLogic.isPromotion(square))
+      {
+        square.piece.type = "Q";
+      }
   }
 
   onChangeTurn() {
