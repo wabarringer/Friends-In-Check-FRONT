@@ -1,4 +1,4 @@
-const URL_PREFIX = "http://localhost:3001";
+const URL_PREFIX = "https://fic-backend.herokuapp.com/";
 
 const API = {
   isValidToken: (token) => {
