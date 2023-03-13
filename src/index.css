@@ -78,6 +78,10 @@ footer a {
   color: var(--br2);
 }
 
+input:focus {
+  outline: 2px solid var(--g2);
+}
+
 /* =============== flexbox classes =============== */
 .column {
   display: flex;
