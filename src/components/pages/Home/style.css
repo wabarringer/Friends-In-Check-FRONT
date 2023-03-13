@@ -46,15 +46,16 @@ section {
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  section {
+  /* section {
     display: flex;
     justify-content: space-around;
-  }
+  } */
 
   .box a,
   .box button {
     height: 5vh;
     width: 30vh;
+    font-size: 16px;
   }
 
   .box {
