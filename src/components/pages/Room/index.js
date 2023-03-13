@@ -45,57 +45,66 @@ const Room = (props) => {
   };
 
   return (
-    <div className="column">
-      <div className="left">
-        <div className="component">
-          <div className="opponent">
-            <div className="room-id">{roomId}</div>
-            <div className="" id="oppVideo">
-              OPP VIDEO
+    <section>
+      <div className="column">
+        <div className="leftContainer">
+          <div className="component">
+            <div className="room-id">
+              <h3>Room ID: {roomId}</h3>
             </div>
-            <div id="oppPieces">OPP PIECES</div>
-          </div>
-        </div>
-        <div className="component">
-          <div className="user">
-            <div className="" id="userVideo">
-              user VIDEO
+            <div id="user">
+              <p>username</p>
+              <div className="" id="userVideo">
+                user video
+              </div>
+              <div id="userPieces">
+                user pieces
+              </div>
             </div>
-            <div id="userPieces">user PIECES</div>
+            <div id="opponent">
+              <p>opponent username</p>
+              <div className="" id="oppVideo">
+                user video
+              </div>
+              <div id="oppPieces">
+                user pieces
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="middleContainer">
+          <div className="mainComponent">
+            {/* <div id="timer">timer</div> */}
+            <div id="chessboard">
+              <MultiPlayerGame socket={props.socket} roomId={roomId} />
+            </div>
+          </div>
+        </div>
+
+        <div className="rightContainer">
+          <div className="component">
+            <div id="chatWindow">
+              {/* map over state arr to show messages on page */}
+              {messages.map((msg) => (
+                <p>{msg}</p>
+              ))}
+            </div>
+            <div id="chatBox">
+              {/* form to send message */}
+              <form onSubmit={sendMsg}>
+                <input
+                  type="text"
+                  placeholder="chat with your opponent"
+                  onChange={handleChatInput}
+                  value={msgInputted}
+                ></input>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="middle">
-        <div className="container">
-          <div id="timer">timer</div>
-          <div className="container" id="chessboard">
-            <MultiPlayerGame socket={props.socket} roomId={roomId} />
-          </div>
-        </div>
-      </div>
-
-      <div className="right">
-        <div className="container" id="chatWindow">
-          CHAT WINDOW
-          {/* map over state arr to show messages on page */}
-          {messages.map((msg) => (
-            <p>{msg}</p>
-          ))}
-        </div>
-        <div className="container" id="chatBox">
-          {/* form to send message */}
-          <form onSubmit={sendMsg}>
-            <input
-              type="text"
-              onChange={handleChatInput}
-              value={msgInputted}
-            ></input>
-          </form>
-          CHAT BOX
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
