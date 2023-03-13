@@ -14,6 +14,10 @@
   font-family: "Lato", sans-serif;
 }
 
+.root {
+  background-color: var(--g1);
+}
+
 a {
   text-decoration: none;
   color: var(--br2);
