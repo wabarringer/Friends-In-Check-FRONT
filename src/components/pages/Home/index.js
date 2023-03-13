@@ -12,6 +12,7 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     }
   }, [isLoggedIn, navigate]);
 
+// Attach a user to their specified room key
   const [joinRoom, setJoinRoom] = useState("");
 
   const joinByRoomId = (e) => {
