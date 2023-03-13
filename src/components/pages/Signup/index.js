@@ -37,7 +37,8 @@ const Signup = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
-        navigate("/home");
+        alert("Successfully created account!");
+        navigate("/login");
       }
       // else if (signupEmail || signupUsername) {
       //   alert("Email address or username is already taken!")
