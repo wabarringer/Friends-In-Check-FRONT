@@ -40,7 +40,7 @@ const Signup = (props) => {
         props.setUserId(data.user.id);
         alert("Successfully created account!");
         navigate("/home");
-      } else if (signupEmail || signupUsername) {
+      } else {
         alert("Email address or username is already taken!");
       }
       localStorage.setItem("token", data.token);
