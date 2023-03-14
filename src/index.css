@@ -43,8 +43,9 @@
   font-family: "Lato", sans-serif;
 }
 
-.root {
-  background-color: var(--g1-g);
+.root,
+section {
+  background: var(--g1-g);
 }
 
 a {

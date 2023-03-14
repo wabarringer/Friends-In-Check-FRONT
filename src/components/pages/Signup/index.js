@@ -53,7 +53,7 @@ const Signup = (props) => {
   return (
     <section>
       <div className="column">
-        <div className="Signup">
+        <div className="signup">
           <form onSubmit={handleSignupSubmit}>
             <input
               name="signupEmail"
