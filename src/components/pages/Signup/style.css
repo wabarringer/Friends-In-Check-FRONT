@@ -6,7 +6,7 @@
   width: 25vw;
   height: auto;
   padding: 20px 0px;
-  background: var(--g3-g);
+  background: var(--br1-g);
   border-radius: 10px;
 }
 
@@ -27,7 +27,7 @@
 
 .signup button {
   border: none;
-  background-color: white;
+  background: white;
   border-radius: 5px;
   height: 50px;
   width: 20vw;
