@@ -21,6 +21,7 @@ function App() {
   const [userId, setUserId] = useState(0);
   const [username, setUsername] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [friendId, setFriendId] = useState(0)
   // Login
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
@@ -100,8 +101,8 @@ function App() {
             path={`/room/:roomId`}
             element={<Room socket={socket} username={username} />}
           />
-          <Route path="/profile" element={<Profile username={username} />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/friends" element={<Friends userId={userId}/>} />
           <Route
             path="/messages"
             element={
