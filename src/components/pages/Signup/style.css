@@ -2,12 +2,14 @@ section {
   height: 87vh;
   display: flex;
   background-color: var(--g1);
+  background: var(--g1-g);
 }
 
 .Signup {
   display: flex;
   flex-direction: column;
   background-color: var(--g3);
+  background: var(--g3-g);
   justify-content: center;
   align-items: center;
   height: 40vh;
@@ -34,7 +36,7 @@ section {
   outline: 2px solid var(--g2);
 }
 
-.Signup button{
+.Signup button {
   border: none;
   background-color: white;
   border-radius: 5px;
