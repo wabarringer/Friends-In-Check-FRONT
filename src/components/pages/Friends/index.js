@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../Friends/style.css';
+import MultiPlayerGame from "../../chess/MultiPlayerGame";
 
 const Friends = () => {
   return (
