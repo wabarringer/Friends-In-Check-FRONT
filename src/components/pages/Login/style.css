@@ -1,19 +1,19 @@
 .loginDiv {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 25vw;
   height: auto;
-  background: var(--g1-g);
+  background: var(--g3-g);
   border-radius: 10px;
 }
 
 #login {
   display: flex;
   flex-direction: column;
-  background-color: var(--g3-g);
   justify-content: top;
   align-items: center;
-  min-height: 40vh;
   width: 30vw;
   padding: 20px 0px;
   border-radius: 10px;
@@ -34,11 +34,12 @@
 }
 
 .loginDiv input {
+  height: 25px;
   width: 20vw;
   margin-bottom: 5px;
   border-radius: 5px;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .loginDiv button,
@@ -46,23 +47,16 @@
   border: none;
   background-color: white;
   border-radius: 5px;
-  height: 7vh;
+  height: 50px;
   width: 20vw;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  section {
-    display: flex;
-    justify-content: space-around;
-  }
-
   .loginDiv {
-    min-height: 200px;
     min-width: 300px;
-    margin: 10px;
   }
 
   .loginDiv input {
@@ -71,12 +65,6 @@
 
   .loginDiv button,
   #createAcct button {
-    min-height: 10px;
     min-width: 250px;
-  }
-
-  #createAcct {
-    margin-top: 20px;
-    padding: 40px;
   }
 }

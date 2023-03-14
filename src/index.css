@@ -44,7 +44,7 @@
 }
 
 .root {
-  background-color: var(--g1);
+  background-color: var(--g1-g);
 }
 
 a {
@@ -64,7 +64,6 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--g1);
   background: var(--g1-g);
   min-height: 8vh;
   align-items: center;
@@ -99,7 +98,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--g1);
   background: var(--g1-g);
   position: absolute;
   bottom: 0;
