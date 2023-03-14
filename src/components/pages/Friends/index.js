@@ -15,12 +15,14 @@ const Friends = ({ userId }) => {
   }, []);
 
   return (
-    <div>
-      <h2>Friends List</h2>
-      {userFriends?.map((friendList) => (
-        <p>{friendList.friendId}</p>
-      ))}
-    </div>
+    <section>
+      <div>
+        <h2>Friends List</h2>
+        {userFriends?.map((friendList) => (
+          <p>{friendList.friendId}</p>
+        ))}
+      </div>
+    </section>
   );
 };
 
