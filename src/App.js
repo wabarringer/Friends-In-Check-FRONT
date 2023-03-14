@@ -14,7 +14,7 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-const socket = io("http://localhost:3002");
+const socket = io("https://fic-socket.herokuapp.com/");
 
 function App() {
   const [token, setToken] = useState("");
@@ -62,7 +62,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
         <Routes>
           <Route
-            path="/home"
+            path="/"
             element={
               <Home
                 socket={socket}

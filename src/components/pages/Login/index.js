@@ -34,7 +34,7 @@ const Login = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
-        navigate("/home")
+        return navigate("/")
       } else {
         alert("Incorrect email address or password!")
       }
@@ -52,24 +52,25 @@ const Login = (props) => {
   return (
     <section>
       <div className="column">
-        <div className="Login">
-          <form onSubmit={handleLoginSubmit}>
-            <input
-              name="loginEmail"
-              value={loginEmail}
-              onChange={handleInputChange}
-              placeholder="email"
-            />
-            <input
-              name="loginPassword"
-              value={loginPassword}
-              onChange={handleInputChange}
-              placeholder="password"
-              type="password"
-            />
-            {/* TODO: ADD HANDLE TO GO TO HOME */}
-            <button>LOGIN</button>
-          </form>
+        <div className="loginDiv">
+          <div id="login">
+            <form onSubmit={handleLoginSubmit}>
+              <input
+                name="loginEmail"
+                value={loginEmail}
+                onChange={handleInputChange}
+                placeholder="email"
+              />
+              <input
+                name="loginPassword"
+                value={loginPassword}
+                onChange={handleInputChange}
+                placeholder="password"
+                type="password"
+              />
+              <button>LOGIN</button>
+            </form>
+          </div>
           
           <div id="createAcct">
             <button onClick={handleGoToSignup}>CREATE AN ACCOUNT</button>
