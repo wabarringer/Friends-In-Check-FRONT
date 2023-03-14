@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
@@ -101,7 +101,7 @@ function App() {
             element={<Room socket={socket} username={username} />}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path={`/friends`} element={<Friends userId={userId} />} />
           <Route
             path="/messages"
             element={
