@@ -39,6 +39,7 @@ const Signup = (props) => {
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
         alert("Successfully created account!");
+        return navigate("/");
       }
       else {
         alert("Email address or username is already taken!")
@@ -47,7 +48,6 @@ const Signup = (props) => {
       setSignupEmail("");
       setSignupUsername("");
       setSignupPassword("");
-      return navigate("/");
     });
   };
   return (

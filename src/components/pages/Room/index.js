@@ -52,22 +52,28 @@ const Room = (props) => {
             <div className="room-id">
               <h3>Room ID: {roomId}</h3>
             </div>
-            <div id="user">
-              <p>username</p>
-              <div className="" id="userVideo">
-                user video
+            <div className="mobileComp">
+              <div id="userDiv">
+                <div id="user">
+                  <p>username</p>
+                  <div id="userVideo">
+                    user video
+                  </div>
+                  <div id="userPieces">
+                    user pieces captured
+                  </div>
+                </div>
               </div>
-              <div id="userPieces">
-                user pieces captured
-              </div>
-            </div>
-            <div id="opponent">
-              <p>opponent username</p>
-              <div className="" id="oppVideo">
-                opp video
-              </div>
-              <div id="oppPieces">
-                opp pieces captured
+              <div id="oppDiv">
+                <div id="opponent">
+                  <p>opponent username</p>
+                  <div id="oppVideo">
+                    opp video
+                  </div>
+                  <div id="oppPieces">
+                  opp pieces captured
+                  </div>
+                </div>
               </div>
             </div>
           </div>

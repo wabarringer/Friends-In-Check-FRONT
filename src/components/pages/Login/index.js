@@ -34,13 +34,13 @@ const Login = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
+        return navigate("/")
       } else {
         alert("Incorrect email address or password!")
       }
       localStorage.setItem("token", data.token);
       setLoginEmail("");
       setLoginPassword("");
-      return navigate("/")
     });
   };
 
