@@ -84,7 +84,7 @@ const Room = ({ socket, username }) => {
           <div className="mainComponent">
             {/* <div id="timer">timer</div> */}
             <div id="chessboard">
-              <MultiPlayerGame socket={socket} roomId={roomId} />
+              <MultiPlayerGame roomId={roomId} username={username} />
             </div>
           </div>
         </div>

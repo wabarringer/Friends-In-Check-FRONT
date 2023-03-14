@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from '../../../utils/API';
 import "../Friends/style.css"
+import MultiPlayerGame from "../../chess/MultiPlayerGame";
 
 
 
