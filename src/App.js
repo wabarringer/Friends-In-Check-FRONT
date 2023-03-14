@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
@@ -8,9 +8,10 @@ import Footer from "./components/Footer";
 import Room from "./components/pages/Room/index";
 import Profile from "./components/pages/Profile/index";
 import Friends from "./components/pages/Friends/index";
+import Messages from "./components/pages/Messages/index";
 import API from "./utils/API";
 
-// Import and init socket globally one time
+// Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
 const socket = io("http://localhost:3002");
@@ -102,6 +103,17 @@ function App() {
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends userId={userId}/>} />
+          <Route
+            path="/messages"
+            element={
+              <Messages
+                isLoggedIn={isLoggedIn}
+                token={token}
+                userId={userId}
+                username={username}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
       <Footer />

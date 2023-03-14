@@ -3,7 +3,9 @@ import Game from "./Game";
 import "../../styles/chess.css";
 import GameLogic from "../../businessLogic/GameLogic";
 import ScoreBoard from "./ScoreBoard";
-// AB: Imported socket.io for client side use
+
+// AB: ***All of my changes on this file were a result of chasing bugs, so I apoligize in adavance if you need to redo anything I have done here
+// AB: moved MultiPlayerGame to wrap both the socket.io and onMessageRecieved
 function MultiPlayerGame({ socket, roomId }) {
   /*
 this is only an example of how to communicate with another player's client via webSockets. 
@@ -74,16 +76,12 @@ this message will be passed to GameLogic to the onSquareClicked
     }
   }
 
-  // socket.on("return-message", onmessageReceived);
-
   function messageHandler(event) {
-    // B) this line is specific to communication via webSockets. Replace with socket.in if needed.
-    // socket.emit("message", event);
-    //
-    // enable this line if you want to  simulate that we are sending over the internet but instead sending the event
-    // directly to the other boards on the same browser
-    //webSocket_onmessage({data:event})
+    socket.emit("move", event);
   }
+
+  // AB: Moved so that function is being called after creation
+  socket.on("return-move", onmessageReceived);
 
   return (
     <div>

@@ -1,5 +1,4 @@
-// import React, { useState } from "react";
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import API from '../../../utils/API';
 import "../Friends/style.css"
 
