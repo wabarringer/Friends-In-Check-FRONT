@@ -41,6 +41,7 @@ const Room = ({ socket, username }) => {
       username: username,
       message: msgInputted,
     });
+    console.log(username);
     console.log(msgInputted);
     setMessages([...messages, `You: ${msgInputted}`]);
   };
@@ -57,7 +58,7 @@ const Room = ({ socket, username }) => {
               <div className="mobileComp">
                 <div id="userDiv">
                   <div id="user">
-                    <p>{username}</p>
+                    <p>username</p>
                     <div id="userVideo">
                       user video
                     </div>
@@ -85,7 +86,9 @@ const Room = ({ socket, username }) => {
             <div className="mainComponent">
               {/* <div id="timer">timer</div> */}
               <div id="chessboard">
-                <MultiPlayerGame roomId={roomId} username={username} />
+                <MultiPlayerGame
+                  roomId={roomId}
+                  username={username} />
               </div>
             </div>
           </div>
