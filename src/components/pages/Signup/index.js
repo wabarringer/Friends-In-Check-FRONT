@@ -7,7 +7,7 @@ const Signup = (props) => {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupUsername, setSignupUsername] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,21 +33,21 @@ const Signup = (props) => {
       password: signupPassword,
     };
     API.signup(signupObj).then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
         alert("Successfully created account!");
-        navigate("/home");
       }
-      // else if (signupEmail || signupUsername) {
-      //   alert("Email address or username is already taken!")
-      // }
+      else {
+        alert("Email address or username is already taken!")
+      }
       localStorage.setItem("token", data.token);
       setSignupEmail("");
       setSignupUsername("");
       setSignupPassword("");
+      return navigate("/");
     });
   };
   return (
