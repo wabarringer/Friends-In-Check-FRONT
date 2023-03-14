@@ -4,7 +4,7 @@ import PieceLogo from "./PieceLogo";
 // onClick is a the function that executes when someone clicks the square
 export default function Square ({ piece, isHighlighted, onClick, index }) {
     const isEvenRow = (Math.trunc(index / 8)) % 2 === 0;
-    const isBlackSquare = (index % 2 === (isEvenRow ? 0 : 1));
+    const isBlackSquare = (index % 2 === (isEvenRow ? 1 : 0));
 
     return (
         <button

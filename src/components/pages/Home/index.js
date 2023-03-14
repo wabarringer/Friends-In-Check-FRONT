@@ -17,8 +17,10 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
 
   const joinByRoomId = (e) => {
     e.preventDefault();
+    const genId = Math.floor(Math.random() * 100000);
     socket.emit("join", { roomId, username });
-    navigate(`/room/${roomId}`);
+    console.log("trying to update roomid", genId)
+    navigate(`/room/${genId}`);
   };
 
   const handleInputChange = (e) => {

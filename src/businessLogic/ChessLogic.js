@@ -1,7 +1,7 @@
 
 export default class ChessLogic {
     getAllowedMoves(type,color,squares,from,lineOfAttackOnly) {
-        console.log("getAllowedMoves",type,color,squares,from,lineOfAttackOnly)
+        //console.log("getAllowedMoves",type,color,squares,from,lineOfAttackOnly)
         var moves = [];
         switch (type)
         {

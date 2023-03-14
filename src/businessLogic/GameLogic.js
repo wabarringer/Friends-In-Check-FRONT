@@ -83,6 +83,18 @@ class GameLogic {
       console.log("onFinishMove",this.currentGameState)
   }
 
+  setPlayerId(playerId) {
+    this.playerId = playerId;
+    this.currentGameState.playerId = playerId;
+    this.forceUpdateScoreBoard();
+  }
+
+  forceUpdateScoreBoard() {
+    if (this.setScoreBoard) {
+      this.setScoreBoard(structuredClone(this.currentGameState)); 
+    }
+  }
+
   // index is the index of the square being clicked
   onSquareClicked(index) {
     var square = this.squares[index];
@@ -185,7 +197,7 @@ class GameLogic {
         targetSquare: square.index,
         piece: this.currentGameState.selectedPiece,
       };
-      this.webSocketHandler(JSON.stringify(message));
+      this.webSocketHandler(message);
     }
     this.log("piece moved");
     this.currentGameState.selectedSquare.piece = null;
