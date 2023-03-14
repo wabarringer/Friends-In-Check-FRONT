@@ -18,10 +18,13 @@ const Friends = ({ userId }) => {
   }, []);
 
   return (
-    <div>
-      <h2>Friends List</h2>
+    <section>
+      <div>
+        <h2>Friends List</h2>
       {userFriends?.map(friendList => <p>{friendList.friendId}</p>)}
-    </div>
+      </div>
+    </section>
+
   );
 };
 
