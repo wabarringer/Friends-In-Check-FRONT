@@ -1,9 +1,14 @@
-.leftContainer,
-.rightContainer {
-  background-color: var(--br2);
+#roomDiv {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  width: 98vw;
+  height: 86vh;
+  background: var(--br2-g);
+  border-radius: 10px;
+}
+
+.leftContainer,
+.rightContainer {
   width: 19vw;
   height: 85vh;
 }
@@ -17,11 +22,10 @@
 }
 
 .middleContainer {
-  background-color: var(--br2);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 59vw;
+  width: 60vw;
   height: 85vh;
 }
 
@@ -59,7 +63,7 @@
 }
 
 #chatBox input {
-  height: 5vh;
+  height: 6vh;
   border: 2px solid var(--g1);
   border-radius: 5px;
   width: 100%;
@@ -88,7 +92,6 @@
   margin: 5px;
   width: 95vw;
   height: auto;
-  /* border: 2px solid var(--g1); */
 }
 
 .hide {
@@ -97,12 +100,12 @@
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  .column {
-    flex-direction: row;
+  #roomDiv {
+    flex-direction: column;
   }
 
   .leftContainer {
-    width: 97vw;
+    width: 98vw;
     height: 14vh;
     padding: 5px;
     border-radius: 5px 5px 0px 0px;
@@ -167,14 +170,14 @@
   }
 
   #chatWindow {
-    height: 5vh;
+    height: 50px;
     width: 92vw;
   }
 
-  #chatBox,
+  #chatBox input,
   #timer {
-    width: 92vw;
-    height: 2vh;
+    width: 100%;
+    height: 24px;
   }
 
   #chessboard {
