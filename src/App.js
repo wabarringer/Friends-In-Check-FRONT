@@ -14,7 +14,7 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-const socket = io("https://fic-socket.herokuapp.com/");
+const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");

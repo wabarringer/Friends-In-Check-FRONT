@@ -4,9 +4,12 @@ import MultiPlayerGame from "../../chess/MultiPlayerGame";
 
 const Friends = () => {
   return (
-    <div>
-      <h2>No friends here</h2>
-    </div>
+    <section>
+      <div>
+        <h2>No friends here</h2>
+      </div>
+    </section>
+
   );
 };
 
