@@ -1,11 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 :root {
-  --g1: #1f2933;
-  --g2: #3e4a51;
-  --g3: #9a9d9e;
-  --br1: #b3a49c;
-  --br2: #eee2cc;
+  --g1: rgb(31, 41, 51);
+  --g1-g: linear-gradient(
+    90deg,
+    rgba(31, 41, 51, 1) 60%,
+    rgba(39, 51, 64, 1) 100%
+  );
+
+  --g2: rgb(62, 74, 81);
+  --g2-g: linear-gradient(
+    90deg,
+    rgba(62, 74, 81, 1) 60%,
+    rgba(78, 93, 102, 1) 100%
+  );
+
+  --g3: rgb(154, 157, 158);
+  --g3-g: linear-gradient(
+    90deg,
+    rgba(154, 157, 158, 1) 60%,
+    rgba(169, 172, 173, 1) 100%
+  );
+
+  --br1: rgb(179, 164, 156);
+  --br1-g: linear-gradient(
+    90deg,
+    rgba(179, 164, 156, 1) 60%,
+    rgba(196, 180, 171, 1) 100%
+  );
+
+  --br2: rgb(238, 226, 204);
+  --br2-g: linear-gradient(
+    90deg,
+    rgba(238, 226, 204, 1) 60%,
+    rgba(245, 233, 210, 1) 100%
+  );
 }
 
 * {
@@ -32,6 +61,7 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: var(--g1);
+  background: var(--g1-g);
   min-height: 8vh;
   align-items: center;
 }
@@ -66,6 +96,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--g1);
+  background: var(--g1-g);
   position: absolute;
   bottom: 0;
   width: 100%;

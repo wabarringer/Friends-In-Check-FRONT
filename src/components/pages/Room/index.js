@@ -5,13 +5,13 @@ import MultiPlayerGame from "../../chess/MultiPlayerGame";
 
 import "../Room/style.css";
 
-const Room = (props) => {
+const Room = ({ socket, username }) => {
   const { roomId } = useParams();
   console.log(roomId);
   // Emit a join event to the server when a user joins a room on component mount
   useEffect(() => {
-    props.socket.emit("in-room", roomId);
-    props.socket.on("user array", (receivedArr) => {
+    socket.emit("in-room", roomId);
+    socket.on("user array", (receivedArr) => {
       console.log(receivedArr);
     });
   }, []);
@@ -20,11 +20,11 @@ const Room = (props) => {
   const [messages, setMessages] = useState([]);
 
   //   returning messages are sent with the event "return-message". We then use the spread op "..." to copy the array so we can map over it with our new message.
-  props.socket.on("return-message", (msg) => {
-    setMessages([...messages, msg]);
+  socket.on("return-message", (newMsg) => {
+    setMessages([...messages, newMsg]);
   });
 
-  props.socket.on("user-joined", (userFromSocket) => {
+  socket.on("user-joined", (userFromSocket) => {
     console.log(`${userFromSocket} has joined the room`);
   });
 
@@ -37,11 +37,12 @@ const Room = (props) => {
   //   emitting the event "send-message" with our username and message from form below
   const sendMsg = (e) => {
     e.preventDefault();
-    props.socket.emit("send-message", {
-      username: props.username,
+    socket.emit("send-message", {
+      username: username,
       message: msgInputted,
     });
     console.log(msgInputted);
+    setMessages([...messages, `You: ${msgInputted}`]);
   };
 
   return (
@@ -57,18 +58,14 @@ const Room = (props) => {
               <div className="" id="userVideo">
                 user video
               </div>
-              <div id="userPieces">
-                user pieces captured
-              </div>
+              <div id="userPieces">user pieces captured</div>
             </div>
             <div id="opponent">
               <p>opponent username</p>
               <div className="" id="oppVideo">
                 opp video
               </div>
-              <div id="oppPieces">
-                opp pieces captured
-              </div>
+              <div id="oppPieces">opp pieces captured</div>
             </div>
           </div>
         </div>
@@ -77,7 +74,7 @@ const Room = (props) => {
           <div className="mainComponent">
             {/* <div id="timer">timer</div> */}
             <div id="chessboard">
-              <MultiPlayerGame socket={props.socket} roomId={roomId} />
+              <MultiPlayerGame socket={socket} roomId={roomId} />
             </div>
           </div>
         </div>

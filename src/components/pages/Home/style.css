@@ -44,7 +44,6 @@ section {
   bottom: 30vh;
 }
 
-
 #joinFormDiv {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +87,7 @@ section {
   #hostRoomDiv {
     top: 42vh;
   }
-  
+
   #joinFormDiv {
     bottom: 20vh;
   }

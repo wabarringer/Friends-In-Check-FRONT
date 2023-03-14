@@ -2,12 +2,14 @@ section {
   height: 87vh;
   display: flex;
   background-color: var(--g1);
+  background: var(--g1-g);
 }
 
 .Login {
   display: flex;
   flex-direction: column;
   background-color: var(--g3);
+  background: var(--g3-g);
   justify-content: top;
   align-items: center;
   min-height: 40vh;
