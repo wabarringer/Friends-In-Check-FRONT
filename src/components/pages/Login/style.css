@@ -3,14 +3,18 @@
   flex-direction: column;
   width: 25vw;
   height: auto;
-  background-color: var(--g3);
+  background: var(--g1-g);
   border-radius: 10px;
 }
 
 #login {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  background-color: var(--g3-g);
+  justify-content: top;
+  align-items: center;
+  min-height: 40vh;
+  width: 30vw;
   padding: 20px 0px;
   border-radius: 10px;
 }
