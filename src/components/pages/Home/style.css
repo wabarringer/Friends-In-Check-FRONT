@@ -85,10 +85,10 @@ section {
   }
 
   #hostRoomDiv {
-    top: 42vh;
+    top: 37%;
   }
 
   #joinFormDiv {
-    bottom: 20vh;
+    bottom: 15%;
   }
 }

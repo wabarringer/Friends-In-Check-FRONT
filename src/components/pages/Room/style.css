@@ -76,6 +76,7 @@
 #oppPieces,
 #userPieces {
   margin: 5px;
+  padding: 1px;
   height: 10vh;
   border: 2px solid var(--g1);
   border-radius: 5px;
@@ -85,8 +86,8 @@
   display: flex;
   flex-direction: column;
   margin: 5px;
-  width: auto;
-  height: 100%;
+  width: 95vw;
+  height: auto;
   /* border: 2px solid var(--g1); */
 }
 
@@ -101,61 +102,79 @@
   }
 
   .leftContainer {
-    width: 100vw;
-    height: 20vh;
+    width: 97vw;
+    height: 14vh;
+    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid var(--g1);
   }
 
   .rightContainer {
-    width: 100vw;
-    height: 15vh;
+    width: 97vw;
+    height: 14vh;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
   }
 
   .middleContainer {
-    width: 100vw;
-    height: 52vh;
+    width: 97vw;
+    height: 59vh;
+    padding: 5px;
   }
 
   .component {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 50vw;
+    width: 95vw;
+  }
+
+  .mobileComp {
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+  }
+
+  .room-id {
+    width: 95vw;
+  }
+
+  #userDiv,
+  #oppDiv {
+    width: 48vw;
   }
 
   #opponent,
   #user {
     display: flex;
     flex-direction: column;
-    width: 100vw;
     justify-content: center;
     align-items: center;
   }
 
-  #user p,
-  #opponent p {
-    display: none;
-  }
-
   #oppVideo,
   #userVideo {
-    width: 47vw;
-    height: 12vh;
+    display: none;
   }
 
   #oppPieces,
   #userPieces {
-    width: 47vw;
+    width: 40vw;
     height: 5vh;
   }
 
+  #chessboard {
+    width: 95vw;
+  }
+
   #chatWindow {
-    height: 10vh;
-    width: 100vw;
+    height: 5vh;
+    width: 92vw;
   }
 
   #chatBox,
   #timer {
-    width: 100vw;
-    height: 3vh;
+    width: 92vw;
+    height: 2vh;
   }
 
   #chessboard {
