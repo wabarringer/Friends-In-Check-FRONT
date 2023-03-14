@@ -7,16 +7,19 @@ import "../Friends/style.css"
 
 const Friends = ({ userId }) => {
   console.log(userId);
-
+  let userFriends 
+  const [friendList, setFriendList] = useState(0) 
   useEffect(() => {
     const userData = API.getUsersById(userId).then((data) => {
-      console.log(data);
+      console.log(data)
+      userFriends = data.Friends
     });
   }, []);
 
   return (
     <div>
-      <h2>No friends here</h2>
+      <h2>Friends List</h2>
+      {userFriends?.map(friendList => <p>{friendList.friendId}</p>)}
     </div>
   );
 };
