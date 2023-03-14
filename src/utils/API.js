@@ -28,6 +28,23 @@ const API = {
       },
     }).then((res) => res.json());
   },
+  addFriend: (friendObj, userId) => {
+    return fetch(`${URL_PREFIX}/api/users/${userId}/friends`, {
+      method: "POST",
+      body: JSON.stringify(friendObj),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  },
+  getUsersById: (userId) => {
+    return fetch(`${URL_PREFIX}/api/users/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  },
 };
 
 export default API;
