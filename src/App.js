@@ -100,8 +100,8 @@ function App() {
             path={`/room/:roomId`}
             element={<Room socket={socket} username={username} />}
           />
-          <Route path="/profile" element={<Profile />} />
-          <Route path={`/friends`} element={<Friends userId={userId} />} />
+          <Route path="/profile" element={<Profile username={username} />} />
+          <Route path="/friends" element={<Friends />} />
           <Route
             path="/messages"
             element={

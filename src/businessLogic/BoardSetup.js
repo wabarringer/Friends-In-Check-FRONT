@@ -6,8 +6,8 @@ class BoardSetup {
     squares[0].piece = new Piece("R", "B");
     squares[1].piece = new Piece("N", "B");
     squares[2].piece = new Piece("B", "B");
-    squares[3].piece = new Piece("K", "B");
-    squares[4].piece = new Piece("Q", "B");
+    squares[3].piece = new Piece("Q", "B");
+    squares[4].piece = new Piece("K", "B");
     squares[5].piece = new Piece("B", "B");
     squares[6].piece = new Piece("N", "B");
     squares[7].piece = new Piece("R", "B");
@@ -24,8 +24,8 @@ class BoardSetup {
     squares[56].piece = new Piece("R", "W");
     squares[57].piece = new Piece("N", "W");
     squares[58].piece = new Piece("B", "W");
-    squares[59].piece = new Piece("K", "W");
-    squares[60].piece = new Piece("Q", "W");
+    squares[59].piece = new Piece("Q", "W");
+    squares[60].piece = new Piece("K", "W");
     squares[61].piece = new Piece("B", "W");
     squares[62].piece = new Piece("N", "W");
     squares[63].piece = new Piece("R", "W");
