@@ -19,6 +19,9 @@ const Room = ({ socket, username }) => {
     console.log(`${userFromSocket} has joined the room`);
   });
 
+  const [msgInputted, setMsgInputted] = useState("");
+  const [messages, setMessages] = useState([]);
+
   //   form control
   const handleChatInput = (e) => {
     e.preventDefault();
@@ -35,13 +38,14 @@ const Room = ({ socket, username }) => {
     });
     console.log(username);
     console.log(msgInputted);
-    setMessages([...messages, `You: ${msgInputted}`]);
   };
 
-  const [msgInputted, setMsgInputted] = useState("");
-  const [messages, setMessages] = useState([]);
-
   socket.on("received_message", (newMsg) => {
+    const renNewMsg = newMsg.split(":");
+    console.log(renNewMsg);
+    if (renNewMsg[0] === username) {
+      return setMessages([...messages, `You: ${renNewMsg[1]}`]);
+    }
     setMessages([...messages, newMsg]);
   });
 
