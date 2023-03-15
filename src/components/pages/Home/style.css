@@ -40,7 +40,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   position: absolute;
-  width: 40vh;
+  width: auto;
   bottom: 30vh;
 }
 
@@ -54,6 +54,8 @@ section {
 
 #joinFormDiv input {
   width: 40vh;
+  height: 20px;
+  font-size: 16px;
 }
 
 /* =============== mobile =============== */

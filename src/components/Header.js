@@ -17,7 +17,7 @@ function Header(props) {
               <img src={messagesButtonLogo} alt="messages button" />
             </Link>
           ) : (
-            <Link to="/login"></Link>
+            <Link to="/"></Link>
           )}
         </li>
 
@@ -27,7 +27,7 @@ function Header(props) {
               <img src={friendsButtonLogo} alt="friends button" />
             </Link>
           ) : (
-            <Link to="/login"></Link>
+            <Link to="/"></Link>
           )}
         </li>
 
@@ -43,7 +43,7 @@ function Header(props) {
               <img src={statsButtonLogo} alt="profile button" />
             </Link>
           ) : (
-            <Link to="/login"></Link>
+            <Link to="/"></Link>
           )}
         </li>
 
@@ -53,7 +53,7 @@ function Header(props) {
               <img src={logoutButtonLogo} alt="logout button" />
             </Link>
           ) : (
-            <Link to="/login"></Link>
+            <Link to="/"></Link>
           )}
         </li>
       </ul>
