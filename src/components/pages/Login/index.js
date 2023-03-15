@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import API from '../../../utils/API.js';
-import '../Login/style.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import API from "../../../utils/API.js";
+import "../Login/style.css";
 
 const Login = (props) => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -34,11 +34,11 @@ const Login = (props) => {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
-        return navigate("/")
+        localStorage.setItem("token", data.token);
+        navigate("/");
       } else {
-        alert("Incorrect email address or password!")
+        alert("Incorrect email address or password!");
       }
-      localStorage.setItem("token", data.token);
       setLoginEmail("");
       setLoginPassword("");
     });
@@ -71,7 +71,7 @@ const Login = (props) => {
               <button>LOGIN</button>
             </form>
           </div>
-          
+
           <div id="createAcct">
             <button onClick={handleGoToSignup}>CREATE AN ACCOUNT</button>
           </div>
