@@ -97,7 +97,7 @@
 }
 
 /* =============== mobile =============== */
-@media all and (max-width: 600px) {
+@media all and (max-width: 930px) {
   #roomDiv {
     flex-direction: column;
   }
@@ -119,7 +119,7 @@
 
   .middleContainer {
     width: 97vw;
-    height: 59vh;
+    height: 65vh;
     padding: 5px;
   }
 
@@ -169,7 +169,7 @@
 
   #chatWindow {
     height: 50px;
-    width: 92vw;
+    width: 99%;
   }
 
   #chatBox input,
