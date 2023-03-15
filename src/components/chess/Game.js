@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import GameLogic from "../../businessLogic/GameLogic";
 import Square from "./Square";
 
-// AB: Connect socket =============================================
-import io from "socket.io-client";
-//const socket = io.connect("http://localhost:3002");
-
 export default function Game({ playerId, squares, gameStateSetter }) {
   // AB: listen to Push_Move from socket backend
   /*

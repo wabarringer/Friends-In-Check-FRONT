@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import API from "../../../utils/API";
+import React, { useState } from "react";
+// import API from "../../../utils/API";
 import Axios from "axios";
 import "../Profile/style.css";
 
 const Profile = (props) => {
-
-
   const [imageSelected, setImageSelected] = useState("");
   const [publicPhotoUrl, setPublicPhotoUrl] = useState("");
+  // const [username, setUsername] = useState("");
 
   const uploadImage = () => {
     const formData = new FormData();
@@ -33,13 +32,33 @@ const Profile = (props) => {
         <div className="left">
           <div id="profileSection">
             <div>
-              <h3>USERNAME</h3>
+              <h3>{props.username}</h3>
               <div id="avatar">
                 <label htmlFor="profile-image">
                   {publicPhotoUrl ? (
-                    <img src={publicPhotoUrl} id="setProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                    <img
+                      src={publicPhotoUrl}
+                      id="setProfileImage"
+                      alt="Profile"
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
                   ) : (
-                    <img src="profile.jpg" id="starterProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                    <img
+                      src="profile.jpg"
+                      id="starterProfileImage"
+                      alt="Profile"
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
                   )}
                 </label>
                 <input
