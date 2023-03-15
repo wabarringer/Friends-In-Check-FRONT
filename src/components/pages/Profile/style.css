@@ -1,10 +1,8 @@
 .left{
-  /* background-color: var(--g3); */
-  border-right: 2px solid var(--g2);
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  width: 30vw;
+  flex-wrap: wrap; */
+  width: 40vw;
   height: 87vh;
 }
 
@@ -13,23 +11,30 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 70vw;
+  width: 60vw;
   height: 87vh;
 }
 
 #profileSection {
   display: flex;
   flex-direction: column;
-  margin: 1vw 1vw 1vw 5vw;
-  width: 100%;
-  justify-content: top;
   align-items: center;
+  width: 95%;
+  height: 96%;
+  margin: 5px 5px 5px 20px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+
 }
 
 #feedBody {
-  margin: 1vw 5vw 1vw 1vw;
-  width: 100%;
-  /* border: 2px solid black; */
+  width: 95%;
+  height: 96%;
+  margin: 5px 20px 5px 10px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 h3 {
@@ -39,12 +44,14 @@ h3 {
 
 #avatar {
   display: flex;
-  height: 15rem;
-  width: 15rem;
-  border: 2px solid var(--g1);
-  border-radius: 50%;
   justify-content: center;
   align-items: center;
+  height: 15rem;
+  width: 15rem;
+  background-color: white;
+  border: 2px solid var(--g1);
+  border-radius: 50%;
+
 }
 
 #userBio {

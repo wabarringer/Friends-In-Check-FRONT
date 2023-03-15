@@ -1,63 +1,51 @@
-section {
-  height: 87vh;
-  display: flex;
-  background-color: var(--g1);
-}
-
-.Signup {
+.signup {
   display: flex;
   flex-direction: column;
-  background-color: var(--g3);
   justify-content: center;
   align-items: center;
-  height: 40vh;
-  width: 30vw;
+  width: 25vw;
+  height: auto;
   padding: 20px 0px;
+  background: var(--br1-g);
   border-radius: 10px;
 }
 
-.Signup form {
+.signup form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Signup input {
+.signup input {
+  height: 25px;
   width: 20vw;
   margin-bottom: 5px;
   border-radius: 5px;
   border: none;
-  font-size: 14px;
-}
-
-.Signup input:focus {
-  outline: 2px solid var(--g2);
-}
-
-.Signup button{
-  border: none;
-  background-color: white;
-  border-radius: 5px;
-  height: 7vh;
-  width: 20vw;
   font-size: 16px;
+}
+
+.signup button {
+  border: none;
+  background: white;
+  border-radius: 5px;
+  height: 50px;
+  width: 20vw;
+  font-size: 18px;
   font-weight: bold;
 }
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  .Signup {
-    min-height: 200px;
+  .signup {
     min-width: 300px;
-    margin: 10px;
   }
 
-  .Signup input {
+  .signup input {
     min-width: 250px;
   }
 
-  .Signup button {
-    min-height: 10px;
+  .signup button {
     min-width: 250px;
   }
 }

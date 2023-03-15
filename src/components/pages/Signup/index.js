@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../../utils/API";
 import "../Signup/style.css";
 
@@ -6,7 +7,7 @@ const Signup = (props) => {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupUsername, setSignupUsername] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,16 +33,17 @@ const Signup = (props) => {
       password: signupPassword,
     };
     API.signup(signupObj).then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
-        navigate("/home");
+        alert("Successfully created account!");
+        return navigate("/");
       }
-      // else if (signupEmail || signupUsername) {
-      //   alert("Email address or username is already taken!")
-      // }
+      else {
+        alert("Email address or username is already taken!")
+      }
       localStorage.setItem("token", data.token);
       setSignupEmail("");
       setSignupUsername("");
@@ -51,7 +53,7 @@ const Signup = (props) => {
   return (
     <section>
       <div className="column">
-        <div className="Signup">
+        <div className="signup">
           <form onSubmit={handleSignupSubmit}>
             <input
               name="signupEmail"

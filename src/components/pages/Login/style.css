@@ -1,82 +1,70 @@
-section {
-  height: 87vh;
-  display: flex;
-  background-color: var(--g1);
-}
-
-.Login {
+.loginDiv {
   display: flex;
   flex-direction: column;
-  background-color: var(--g3);
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: auto;
+  background: var(--br1-g);
+  border-radius: 10px;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
   justify-content: top;
   align-items: center;
-  min-height: 40vh;
   width: 30vw;
   padding: 20px 0px;
   border-radius: 10px;
 }
 
-.Login form {
+#createAcct {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px;
+  border-top: 4px solid var(--g1);
+}
+
+.loginDiv form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Login input {
+.loginDiv input {
+  height: 25px;
   width: 20vw;
   margin-bottom: 5px;
   border-radius: 5px;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.Login button,
+.loginDiv button,
 #createAcct button {
   border: none;
-  background-color: white;
+  background: white;
   border-radius: 5px;
-  height: 7vh;
+  height: 50px;
   width: 20vw;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-}
-
-#createAcct {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  border-top: 2px solid black;
-  width: 100%;
-  padding: 40px;
 }
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  section {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .Login {
-    min-height: 200px;
+  .loginDiv {
     min-width: 300px;
-    margin: 10px;
   }
 
-  .Login input {
+  .loginDiv input {
     min-width: 250px;
   }
 
-  .Login button,
+  .loginDiv button,
   #createAcct button {
-    min-height: 10px;
     min-width: 250px;
-  }
-
-  #createAcct {
-    margin-top: 20px;
-    padding: 40px;
   }
 }

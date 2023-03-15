@@ -28,42 +28,43 @@ const Profile = (props) => {
   };
 
   return (
-    <div className="column">
-      <div className="left">
-        <div id="profileSection">
-          <div>
-            <h3>USERNAME</h3>
-            <div id="avatar">
-              <label htmlFor="profile-image">
-                {publicPhotoUrl ? (
-                  <img src={publicPhotoUrl} id="setProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
-                ) : (
-                  <img src="profile.jpg" id="starterProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
-                )}
-              </label>
-              <input
-                type="file"
-                id="profile-image"
-                style={{ display: "none" }}
-                onChange={(event) => {
-                  setImageSelected(event.target.files[0]);
-                }}
-              />
+    <section>
+      <div className="column">
+        <div className="left">
+          <div id="profileSection">
+            <div>
+              <h3>USERNAME</h3>
+              <div id="avatar">
+                <label htmlFor="profile-image">
+                  {publicPhotoUrl ? (
+                    <img src={publicPhotoUrl} id="setProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                  ) : (
+                    <img src="profile.jpg" id="starterProfileImage" alt="Profile" style={{ maxWidth: "100%", maxHeight: "100%", objectFit:"cover", borderRadius:"50%" }} />
+                  )}
+                </label>
+                <input
+                  type="file"
+                  id="profile-image"
+                  style={{ display: "none" }}
+                  onChange={(event) => {
+                    setImageSelected(event.target.files[0]);
+                  }}
+                />
+              </div>
+              <button onClick={uploadImage}>Save</button>
             </div>
-            <button onClick={uploadImage}>Save</button>
 
+            <div id="userBio">USER BIO</div>
           </div>
-          
-          <div id="userBio">USER BIO</div>
+        </div>
+        <div className="middle">
+          {/* <button onClick={uploadImage}>Save</button> */}
+        </div>
+        <div className="right">
+          <div id="feedBody">STATS FEED</div>
         </div>
       </div>
-      <div className="middle">
-        {/* <button onClick={uploadImage}>Save</button> */}
-      </div>
-      <div className="right">
-        <div id="feedBody">STATS FEED</div>
-      </div>
-    </div>
+    </section>
   );
 };
 

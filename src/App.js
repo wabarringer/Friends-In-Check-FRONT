@@ -14,28 +14,27 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-const socket = io("http://localhost:3002");
+//const socket = io("http://localhost:3002");
+const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
   const [username, setUsername] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [friendId, setFriendId] = useState(0);
   // Login
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    if (savedToken) {
-      API.isValidToken(savedToken).then((tokenData) => {
-        if (tokenData.isValid) {
-          setToken(savedToken);
-          setUserId(tokenData.user.id);
-          setUsername(tokenData.user.username);
-          setIsLoggedIn(true);
-        } else {
-          localStorage.removeItem("token");
-        }
-      });
-    }
+    console.log(token);
+    API.isValidToken(localStorage.getItem("token")).then((tokenData) => {
+      console.log(tokenData);
+      if (tokenData.isValid) {
+        setToken(tokenData.token);
+        setUserId(tokenData.user.id);
+        setUsername(tokenData.user.username);
+        setIsLoggedIn(true);
+      }
+    });
   }, []);
 
   // Logout
@@ -62,7 +61,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
         <Routes>
           <Route
-            path="/home"
+            path="/"
             element={
               <Home
                 socket={socket}
@@ -101,7 +100,7 @@ function App() {
             element={<Room socket={socket} username={username} />}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path="/friends" element={<Friends userId={userId} />} />
           <Route
             path="/messages"
             element={
