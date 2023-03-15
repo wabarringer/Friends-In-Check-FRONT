@@ -20,7 +20,7 @@ const socket = io("https://fic-socket.herokuapp.com");
 function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
-  const [username, setUsername] = useState(0);
+  const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [friendId, setFriendId] = useState(0);
   // Login

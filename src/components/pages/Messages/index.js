@@ -5,10 +5,27 @@ const Messages = () => {
   return (
     <section>
       <div className="column">
-        <div className="centerDiv">
+        <div className="msgPageDiv">
+          <div className="allMessagesDiv">
+            <h3>all messages/preview</h3>
+          </div>
 
+          <div className="directMessageDiv">
+            <div id="msgWindow">
+              <h3>individual message with friend</h3>
+            </div>
+            <div id="msgInput">
+              {/* <form onSubmit={sendMsg}>
+                <input
+                  type="text"
+                  placeholder="chat with your opponent"
+                  onChange={handleChatInput}
+                  value={msgInputted}
+                ></input>
+              </form> */}
+            </div>
+          </div>
         </div>
-        <h2>No messages here</h2>
       </div>
     </section>
   );

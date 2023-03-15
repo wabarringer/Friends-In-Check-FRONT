@@ -1,0 +1,28 @@
+.friendPageDiv{
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  height: 85vh;
+}
+.userInfoDiv{
+  height: 20vh;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--br2-g);
+}
+
+.friendsDiv{
+  height: 80vh;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--br2-g);
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  .friendPageDiv {
+    width: 90vw;
+  }
+}

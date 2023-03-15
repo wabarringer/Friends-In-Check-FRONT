@@ -1,4 +1,49 @@
-.centerDiv {
+.msgPageDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 70vw;
+  height: 85vh;
+}
+
+.allMessagesDiv {
+  width: 40vw;
+  margin: 0px 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--br2);
+}
+
+.directMessageDiv {
+  width: 60vw;
+  margin: 0px 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--br2-g);
+}
+
+#msgWindow {
+  margin: 5px 5px 0px 5px;
+  height: 76vh;
+}
+
+#msgInput {
+  margin: 5px;
+  height: 6vh;
+  border: 2px solid var(--g1);
+  border-radius: 5px;
+}
+
+#msgInput input {
+  height: 6vh;
+  width: 100%;
+  font-size: 16px;
+  border: 2px solid var(--g1);
+  border-radius: 5px;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 600px) {
+  .msgPageDiv {
+    width: 90vw;
+  }
 }

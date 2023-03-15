@@ -13,7 +13,7 @@ function MultiPlayerGame({ roomId, username }) {
   }
 
   return (
-    <div>
+    <div className="multiPlayerGameDiv">
       <ScoreBoard
         currentScoreBoard={MultiplayerLogic.game1.currentGameState}
         scoreBoardSetter={(setScoreBoard) =>
