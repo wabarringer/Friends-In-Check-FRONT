@@ -20,7 +20,7 @@ export default function Game({ playerId, squares, gameStateSetter }) {
   gameStateSetter(setGameState);
 
   return (
-    <div>
+    <div className="gameDiv">
       {/* <div>{playerId}</div> */}
       <div id="playChessboard">
         <BoardRow start={0} end={8} squares={gameState}></BoardRow>
