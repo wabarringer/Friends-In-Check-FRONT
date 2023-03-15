@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
@@ -14,8 +14,8 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-// const socket = io("https://localhost:3002");
-const socket = io("https://fic-socket.herokuapp.com");
+const socket = io("http://localhost:3002");
+// const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
@@ -25,7 +25,6 @@ function App() {
 
   // Login
   useEffect(() => {
-    console.log(token);
     API.isValidToken(localStorage.getItem("token")).then((tokenData) => {
       console.log(tokenData);
       if (tokenData.isValid) {

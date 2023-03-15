@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../../../styles/chess.css";
 import MultiPlayerGame from "../../chess/MultiPlayerGame";
-
 import "../Room/style.css";
 
 const Room = ({ socket, username }) => {
@@ -10,18 +9,11 @@ const Room = ({ socket, username }) => {
   console.log(roomId);
   // Emit a join event to the server when a user joins a room on component mount
   useEffect(() => {
-    socket.emit("in-room", roomId);
+    socket.emit("join_room", roomId);
     socket.on("user array", (receivedArr) => {
       console.log(receivedArr);
     });
   }, []);
-
-  const [msgInputted, setMsgInputted] = useState("");
-  const [messages, setMessages] = useState([]);
-
-  socket.on("recieved_message", (newMsg) => {
-    setMessages([...messages, newMsg]);
-  });
 
   socket.on("user-joined", (userFromSocket) => {
     console.log(`${userFromSocket} has joined the room`);
@@ -37,12 +29,20 @@ const Room = ({ socket, username }) => {
   const sendMsg = (e) => {
     e.preventDefault();
     socket.emit("send_message", {
+      room: roomId,
       username: username,
       message: msgInputted,
     });
     console.log(msgInputted);
     setMessages([...messages, `You: ${msgInputted}`]);
   };
+
+  const [msgInputted, setMsgInputted] = useState("");
+  const [messages, setMessages] = useState([]);
+
+  socket.on("received_message", (newMsg) => {
+    setMessages([...messages, newMsg]);
+  });
 
   return (
     <section>

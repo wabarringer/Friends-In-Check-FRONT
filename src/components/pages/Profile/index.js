@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import API from "../../../utils/API";
+import React, { useState } from "react";
+// import API from "../../../utils/API";
 import Axios from "axios";
 import "../Profile/style.css";
 
 const Profile = (props) => {
   const [imageSelected, setImageSelected] = useState("");
   const [publicPhotoUrl, setPublicPhotoUrl] = useState("");
+  // const [username, setUsername] = useState("");
 
   const uploadImage = () => {
     const formData = new FormData();
