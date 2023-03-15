@@ -38,6 +38,7 @@ const Room = ({ socket, username }) => {
     });
     console.log(username);
     console.log(msgInputted);
+    setMsgInputted("");
   };
 
   socket.on("received_message", (newMsg) => {
