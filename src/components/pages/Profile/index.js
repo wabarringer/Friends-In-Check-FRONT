@@ -76,9 +76,6 @@ const Profile = (props) => {
             <div id="userBio">USER BIO</div>
           </div>
         </div>
-        <div className="middle">
-          {/* <button onClick={uploadImage}>Save</button> */}
-        </div>
         <div className="right">
           <div id="feedBody">STATS FEED</div>
         </div>

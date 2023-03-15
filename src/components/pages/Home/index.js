@@ -39,11 +39,9 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     <section>
       <div className="column">
         <div className="box">
-          <div>
-            <img src={chessboardHome} alt="chessboard with pawn" />
-          </div>
-          <div id="hostRoomDiv" onClick={joinByRoomId}>
-            <button>HOST A ROOM</button>
+          <img src={chessboardHome} alt="chessboard with pawn" />
+          <div id="hostRoomDiv">
+            <button onClick={joinByRoomId}>HOST A ROOM</button>
           </div>
         </div>
 

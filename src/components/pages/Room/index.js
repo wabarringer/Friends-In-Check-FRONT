@@ -33,6 +33,7 @@ const Room = ({ socket, username }) => {
       username: username,
       message: msgInputted,
     });
+    console.log(username);
     console.log(msgInputted);
     setMessages([...messages, `You: ${msgInputted}`]);
   };
@@ -47,58 +48,59 @@ const Room = ({ socket, username }) => {
   return (
     <section>
       <div className="column">
-        <div className="leftContainer">
-          <div className="component">
-            <div className="room-id">
-              <h3>Room ID: {roomId}</h3>
-            </div>
-            <div className="mobileComp">
-              <div id="userDiv">
-                <div id="user">
-                  {username}
-
-                  <div id="userVideo">user video</div>
-                  <div id="userPieces">user pieces captured</div>
-                </div>
+        <div id="roomDiv">
+          <div className="leftContainer">
+            <div className="component">
+              <div className="room-id">
+                <h3>Room ID: {roomId}</h3>
               </div>
-              <div id="oppDiv">
-                <div id="opponent">
-                  <p>opponent username</p>
-                  <div id="oppVideo">opp video</div>
-                  <div id="oppPieces">opp pieces captured</div>
+              <div className="mobileComp">
+                <div id="userDiv">
+                  <div id="user">
+                    <p>username</p>
+                    <div id="userVideo">user video</div>
+                    <div id="userPieces">user pieces captured</div>
+                  </div>
+                </div>
+                <div id="oppDiv">
+                  <div id="opponent">
+                    <p>oppUser</p>
+                    <div id="oppVideo">opp video</div>
+                    <div id="oppPieces">opp pieces captured</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="middleContainer">
-          <div className="mainComponent">
-            {/* <div id="timer">timer</div> */}
-            <div id="chessboard">
-              <MultiPlayerGame roomId={roomId} username={username} />
+          <div className="middleContainer">
+            <div className="mainComponent">
+              {/* <div id="timer">timer</div> */}
+              <div id="chessboard">
+                <MultiPlayerGame roomId={roomId} username={username} />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="rightContainer">
-          <div className="component">
-            <div id="chatWindow">
-              {/* map over state arr to show messages on page */}
-              {messages.map((msg) => (
-                <p>{msg}</p>
-              ))}
-            </div>
-            <div id="chatBox">
-              {/* form to send message */}
-              <form onSubmit={sendMsg}>
-                <input
-                  type="text"
-                  placeholder="chat with your opponent"
-                  onChange={handleChatInput}
-                  value={msgInputted}
-                ></input>
-              </form>
+          <div className="rightContainer">
+            <div className="component">
+              <div id="chatWindow">
+                {/* map over state arr to show messages on page */}
+                {messages.map((msg) => (
+                  <p>{msg}</p>
+                ))}
+              </div>
+              <div id="chatBox">
+                {/* form to send message */}
+                <form onSubmit={sendMsg}>
+                  <input
+                    type="text"
+                    placeholder="chat with your opponent"
+                    onChange={handleChatInput}
+                    value={msgInputted}
+                  ></input>
+                </form>
+              </div>
             </div>
           </div>
         </div>
