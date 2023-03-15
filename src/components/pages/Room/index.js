@@ -6,12 +6,13 @@ import "../Room/style.css";
 
 const Room = ({ socket, username }) => {
   const { roomId } = useParams();
-  const [userArr, setUserArr] = useState([]);
-
   console.log(roomId);
   // Emit a join event to the server when a user joins a room on component mount
   useEffect(() => {
-    socket.emit("join_room", { roomId: roomId });
+    socket.emit("join_room", roomId);
+    socket.on("user array", (receivedArr) => {
+      console.log(receivedArr);
+    });
   }, []);
 
   socket.on("user-joined", (userFromSocket) => {
@@ -97,7 +98,7 @@ const Room = ({ socket, username }) => {
                 {/* form to send message */}
                 <form onSubmit={sendMsg}>
                   <input
-                    type="textarea"
+                    type="text-area"
                     id="chatInput"
                     placeholder="chat with your opponent"
                     onChange={handleChatInput}
