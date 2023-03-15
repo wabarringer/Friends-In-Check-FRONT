@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/pages/Login/index";
 import Signup from "./components/pages/Signup/index";
@@ -14,18 +14,20 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-const socket = io("http://localhost:3002");
-// const socket = io("https://fic-socket.herokuapp.com");
+// for localhost testing
+// const socket = io("http://localhost:3002");
+
+// for production
+const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
-  const [username, setUsername] = useState(0);
+  const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [friendId, setFriendId] = useState(0);
+
   // Login
   useEffect(() => {
-    console.log(token);
     API.isValidToken(localStorage.getItem("token")).then((tokenData) => {
       console.log(tokenData);
       if (tokenData.isValid) {
@@ -97,10 +99,26 @@ function App() {
           />
           <Route
             path={`/room/:roomId`}
-            element={<Room socket={socket} username={username} />}
+            element={<Room
+              socket={socket}
+              username={username}
+              />
+            }
           />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/friends" element={<Friends userId={userId} />} />
+          <Route
+            path="/profile" element={<Profile
+              username={username}
+              />
+            }
+          />
+          <Route
+            path="/friends"
+            element={<Friends
+              userId={userId}
+              username={username} 
+              />
+            }
+          />
           <Route
             path="/messages"
             element={

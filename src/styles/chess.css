@@ -1,21 +1,142 @@
 ol, ul {
-    padding-left: 30px;
+  padding-left: 30px;
+}
+
+.board-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  border: 1px solid #999;
+  float: left;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 4.5rem;
+  width: 4.5rem;
+  margin-right: -1px;
+  margin-top: -1px;
+  text-align: center;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.player1 {
+  background-color: aqua;
+}
+
+.player2 {
+  background-color: orangered;
+}
+
+.squareBlack {
+  background-color: rgb(59, 56, 75);
+}
+.squareWhite {
+  background-color: beige;
+}
+
+.squareSelected {
+  background-color: yellow;
+}
+
+.squareHighlighted {
+  background-color: slategray;
+}
+
+.isCaptureHighlighted{
+  background-color: red;
+}
+
+.pieceLogo {
+  height: 45px;
+}
+
+#playChessboard {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+
+}
+
+.scoreboardDiv {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+
+#turnInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60vw;
+  margin-bottom: 10px;
+}
+
+.multiPlayerGameDiv {
+  width: auto;
+}
+
+.gameDiv {
+  display: flex;
+  justify-content: center;
+}
+
+/* =============== mobile =============== */
+@media all and (max-width: 930px) {
+  #playChessboard {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+  
   }
   
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
+  .scoreboardDiv {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
   }
   
-  .status {
-    margin-bottom: 10px;
+  #turnInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 95vw;
+    margin-bottom: 3px;
   }
   
+  .multiPlayerGameDiv {
+    width: 97vw;
+  }
+
   .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
@@ -26,51 +147,4 @@ ol, ul {
     text-align: center;
     width: 50px;
   }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
-  .player1 {
-    background-color: aqua;
-  }
-
-  .player2 {
-    background-color: orangered;
-  }
-
-  .squareBlack {
-    background-color: rgb(59, 56, 75);
-  }
-  .squareWhite {
-    background-color: beige;
-  }
-
-  .squareSelected {
-    background-color: yellow;
-  }
-
-  .squareHighlighted {
-    background-color: slategray;
-  }
-
-  .isCaptureHighlighted{
-    background-color: red;
-  }
-
-  .pieceLogo {
-    height: 45px;
-  }
+}

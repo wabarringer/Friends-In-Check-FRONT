@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Home/style.css";
-import chessboardHome from "../../../img/chessboard-home.png";
+import chessboardHomeHost from "../../../img/join-card02.png";
+import chessboardHomeJoin from "../../../img/host-card02.png";
 
 const Home = ({ roomId, isLoggedIn, socket, username }) => {
   const navigate = useNavigate();
@@ -12,14 +13,14 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     }
   }, [isLoggedIn, navigate]);
 
-// Attach a user to their specified room key
+  // Attach a user to their specified room key
   const [joinRoom, setJoinRoom] = useState("");
 
   const joinByRoomId = (e) => {
     e.preventDefault();
     const genId = Math.floor(Math.random() * 100000);
     socket.emit("join", { roomId, username });
-    console.log("trying to update roomid", genId)
+    console.log("trying to update roomid", genId);
     navigate(`/room/${genId}`);
   };
 
@@ -39,17 +40,15 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     <section>
       <div className="column">
         <div className="box">
-          <div>
-            <img src={chessboardHome} alt="chessboard with pawn" />
-          </div>
-          <div id="hostRoomDiv" onClick={joinByRoomId}>
-            <button>HOST A ROOM</button>
+          <img src={chessboardHomeHost} alt="chessboard with pawn" />
+          <div id="hostRoomDiv">
+            <button onClick={joinByRoomId}>HOST A ROOM</button>
           </div>
         </div>
 
         <div className="box">
           <div>
-            <img src={chessboardHome} alt="chessboard with a pawn" />
+            <img src={chessboardHomeJoin} alt="chessboard with a pawn" />
           </div>
           <div id="joinFormDiv">
             <form onSubmit={onSubmitHandler}>
