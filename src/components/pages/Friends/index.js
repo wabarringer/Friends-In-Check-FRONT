@@ -5,7 +5,7 @@ import "../Friends/style.css";
 const Friends = ({ userId, username }) => {
   const [userFriends, setUserFriends] = useState([]);
   const [searchedUser, setSearchedUser] = useState("");
-  const [foundUser, setFoundUser] = useState(null);
+  // const [foundUser, setFoundUser] = useState(null);
 
   useEffect(() => {
     API.getUsersById(userId).then((data) => {
