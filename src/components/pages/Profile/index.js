@@ -28,6 +28,8 @@ const Profile = (props) => {
     );
   };
 
+
+
   return (
     <section>
       <div className="column">
@@ -77,7 +79,7 @@ const Profile = (props) => {
 
             <div id="userBio">
               <h3>BIOGRAPHY</h3>
-              <button>Edit</button>
+              {}<button onClick={() => setIsEditing(true)}>Edit</button>
             </div>
           </div>
         </div>
