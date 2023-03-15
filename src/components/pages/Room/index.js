@@ -19,8 +19,7 @@ const Room = ({ socket, username }) => {
   const [msgInputted, setMsgInputted] = useState("");
   const [messages, setMessages] = useState([]);
 
-  //   returning messages are sent with the event "return-message". We then use the spread op "..." to copy the array so we can map over it with our new message.
-  socket.on("return-message", (newMsg) => {
+  socket.on("recieved_message", (newMsg) => {
     setMessages([...messages, newMsg]);
   });
 
@@ -37,7 +36,7 @@ const Room = ({ socket, username }) => {
   //   emitting the event "send-message" with our username and message from form below
   const sendMsg = (e) => {
     e.preventDefault();
-    socket.emit("send-message", {
+    socket.emit("send_message", {
       username: username,
       message: msgInputted,
     });
@@ -56,24 +55,17 @@ const Room = ({ socket, username }) => {
             <div className="mobileComp">
               <div id="userDiv">
                 <div id="user">
-                  <p>username</p>
-                  <div id="userVideo">
-                    user video
-                  </div>
-                  <div id="userPieces">
-                    user pieces captured
-                  </div>
+                  {username}
+
+                  <div id="userVideo">user video</div>
+                  <div id="userPieces">user pieces captured</div>
                 </div>
               </div>
               <div id="oppDiv">
                 <div id="opponent">
                   <p>opponent username</p>
-                  <div id="oppVideo">
-                    opp video
-                  </div>
-                  <div id="oppPieces">
-                  opp pieces captured
-                  </div>
+                  <div id="oppVideo">opp video</div>
+                  <div id="oppPieces">opp pieces captured</div>
                 </div>
               </div>
             </div>

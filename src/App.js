@@ -14,14 +14,15 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
+// const socket = io("https://localhost:3002");
 const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
-  const [username, setUsername] = useState(0);
+  const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [friendId, setFriendId] = useState(0);
+
   // Login
   useEffect(() => {
     console.log(token);
@@ -98,7 +99,7 @@ function App() {
             path={`/room/:roomId`}
             element={<Room socket={socket} username={username} />}
           />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile username={username} />} />
           <Route path="/friends" element={<Friends userId={userId} />} />
           <Route
             path="/messages"
