@@ -32,7 +32,7 @@ const Profile = (props) => {
         <div className="left">
           <div id="profileSection">
             <div>
-              <h3>{props.username}</h3>
+              <h2>{props.username}</h2>
               <div id="avatar">
                 <label htmlFor="profile-image">
                   {publicPhotoUrl ? (
@@ -73,11 +73,15 @@ const Profile = (props) => {
               <button onClick={uploadImage}>Save</button>
             </div>
 
-            <div id="userBio">USER BIO</div>
+            <div id="userBio">
+              <h3>BIOGRAPHY</h3>
+            </div>
           </div>
         </div>
         <div className="right">
-          <div id="feedBody">STATS FEED</div>
+          <div id="feedBody">
+            <h3>GAME STATS</h3>
+          </div>
         </div>
       </div>
     </section>
