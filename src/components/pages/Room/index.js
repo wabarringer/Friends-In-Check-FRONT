@@ -57,7 +57,7 @@ const Room = ({ socket, username }) => {
               <div className="mobileComp">
                 <div id="userDiv">
                   <div id="user">
-                    <p>username</p>
+                    <p>{username}</p>
                     <div id="userVideo">user video</div>
                     <div id="userPieces">user pieces captured</div>
                   </div>
