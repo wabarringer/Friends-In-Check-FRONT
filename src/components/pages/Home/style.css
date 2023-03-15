@@ -10,7 +10,6 @@ section {
   height: 40vh;
   width: 40vh;
   margin: 20px;
-  /* border: 2px solid var(--g2); */
   border-radius: 10px;
 }
 
@@ -37,8 +36,6 @@ section {
 }
 
 #hostRoomDiv {
-  display: flex;
-  flex-wrap: wrap;
   position: absolute;
   width: auto;
   bottom: 30vh;
@@ -60,37 +57,35 @@ section {
 
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
-  /* section {
-    display: flex;
-    justify-content: space-around;
-  } */
-
-  .box button {
-    height: 5vh;
-    width: 30vh;
-    font-size: 16px;
+  .column {
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 
   .box {
-    height: 30vh;
-    width: 30vh;
+    height: 25vh;
+    width: 25vh;
     margin: 10px;
+  }
+  
+  .box button {
+    height: 5vh;
+    width: 25vh;
+    font-size: 16px;
   }
 
   .box img {
-    height: 30vh;
-    width: 30vh;
+    height: 25vh;
+    width: 25vh;
   }
 
   #joinFormDiv input {
-    width: 30vh;
+    width: 25vh;
   }
 
-  #hostRoomDiv {
-    top: 37%;
-  }
-
+  #hostRoomDiv,
   #joinFormDiv {
-    bottom: 15%;
+    bottom: 40vh;
+    width: auto;
   }
 }
