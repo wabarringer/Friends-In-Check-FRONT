@@ -29,7 +29,7 @@ const Login = (props) => {
       password: loginPassword,
     };
     API.login(loginObj).then((data) => {
-      // console.log(data);
+      console.log(data);
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
