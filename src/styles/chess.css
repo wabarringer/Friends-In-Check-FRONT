@@ -19,18 +19,16 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 50px;
   font-weight: bold;
   line-height: 34px;
-  height: 50px;
+  height: 4.5rem;
+  width: 4.5rem;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 0;
   text-align: center;
-  width: 50px;
 }
 
 .square:focus {
@@ -99,6 +97,7 @@ ol, ul {
   flex-direction: row;
   justify-content: space-around;
   width: 60vw;
+  margin-bottom: 10px;
 }
 
 .multiPlayerGameDiv {
@@ -111,7 +110,7 @@ ol, ul {
 }
 
 /* =============== mobile =============== */
-@media all and (max-width: 600px) {
+@media all and (max-width: 930px) {
   #playChessboard {
     display: flex;
     flex-direction: column;
@@ -130,9 +129,22 @@ ol, ul {
     flex-direction: row;
     justify-content: space-around;
     width: 95vw;
+    margin-bottom: 3px;
   }
   
   .multiPlayerGameDiv {
     width: 97vw;
+  }
+
+  .square {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 50px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 50px;
   }
 }
