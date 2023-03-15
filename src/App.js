@@ -21,22 +21,19 @@ function App() {
   const [userId, setUserId] = useState(0);
   const [username, setUsername] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [friendId, setFriendId] = useState(0)
+  const [friendId, setFriendId] = useState(0);
   // Login
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    if (savedToken) {
-      API.isValidToken(savedToken).then((tokenData) => {
-        if (tokenData.isValid) {
-          setToken(savedToken);
-          setUserId(tokenData.user.id);
-          setUsername(tokenData.user.username);
-          setIsLoggedIn(true);
-        } else {
-          localStorage.removeItem("token");
-        }
-      });
-    }
+    console.log(token);
+    API.isValidToken(localStorage.getItem("token")).then((tokenData) => {
+      console.log(tokenData);
+      if (tokenData.isValid) {
+        setToken(tokenData.token);
+        setUserId(tokenData.user.id);
+        setUsername(tokenData.user.username);
+        setIsLoggedIn(true);
+      }
+    });
   }, []);
 
   // Logout
@@ -102,7 +99,7 @@ function App() {
             element={<Room socket={socket} username={username} />}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/friends" element={<Friends userId={userId}/>} />
+          <Route path="/friends" element={<Friends userId={userId} />} />
           <Route
             path="/messages"
             element={
