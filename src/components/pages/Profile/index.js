@@ -6,6 +6,7 @@ import "../Profile/style.css";
 const Profile = (props) => {
   const [imageSelected, setImageSelected] = useState("");
   const [publicPhotoUrl, setPublicPhotoUrl] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
   // const [username, setUsername] = useState("");
 
   const uploadImage = () => {
@@ -23,7 +24,8 @@ const Profile = (props) => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      }
+    );
   };
 
   return (
@@ -75,6 +77,7 @@ const Profile = (props) => {
 
             <div id="userBio">
               <h3>BIOGRAPHY</h3>
+              <button>Edit</button>
             </div>
           </div>
         </div>

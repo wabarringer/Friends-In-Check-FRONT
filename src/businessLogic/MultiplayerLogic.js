@@ -124,10 +124,10 @@ const multiplayerLogic = new MultiPlayerLogic();
 multiplayerLogic.initialize(0, "W", "player1");
 console.log("after initialize", multiplayerLogic.game1);
 // live
-// const socket = io("https://fic-socket.herokuapp.com");
+const socket = io("https://fic-socket.herokuapp.com");
 
 // for localhost testing
-const socket = io("http://localhost:3002");
+// const socket = io("http://localhost:3002");
 
 socket.on("broadcastMove", (e) => multiplayerLogic.onHandlePieceMoved(e));
 socket.on("broadcastRoom", (e) => multiplayerLogic.onHandleJoinRoom(e));

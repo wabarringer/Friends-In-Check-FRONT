@@ -68,6 +68,7 @@
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
+  align-items: top;
 }
 
 #oppVideo,

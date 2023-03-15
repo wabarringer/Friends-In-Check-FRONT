@@ -99,7 +99,7 @@ const Room = ({ socket, username }) => {
                 <form onSubmit={sendMsg}>
                   <input
                     type="text"
-                    placeholder="chat with your opponent"
+                    placeholder="chat"
                     onChange={handleChatInput}
                     value={msgInputted}
                   ></input>
