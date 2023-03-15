@@ -29,11 +29,12 @@ const Login = (props) => {
       password: loginPassword,
     };
     API.login(loginObj).then((data) => {
-      console.log(data);
+      console.log("acquiring token",data);
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
+        props.setUsername(data.user.username);
         localStorage.setItem("token", data.token);
         navigate("/");
       } else {
