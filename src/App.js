@@ -14,8 +14,11 @@ import API from "./utils/API";
 // Import and init socket globally one time (bugfix)
 import io from "socket.io-client";
 
-const socket = io("http://localhost:3002");
-// const socket = io("https://fic-socket.herokuapp.com");
+// for localhost testing
+// const socket = io("http://localhost:3002");
+
+// for production
+const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
@@ -99,7 +102,10 @@ function App() {
             element={<Room socket={socket} username={username} />}
           />
           <Route path="/profile" element={<Profile username={username} />} />
-          <Route path="/friends" element={<Friends userId={userId} />} />
+          <Route
+            path="/friends"
+            element={<Friends userId={userId} username={username} />}
+          />
           <Route
             path="/messages"
             element={

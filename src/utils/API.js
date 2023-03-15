@@ -1,3 +1,4 @@
+// for localhost testing
 // const URL_PREFIX = "http://localhost:3001";
 // production
 const URL_PREFIX = "https://fic-backend.herokuapp.com";
@@ -39,6 +40,14 @@ const API = {
   },
   getUsersById: (userId) => {
     return fetch(`${URL_PREFIX}/api/users/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  },
+  getUsersByUsername: (username) => {
+    return fetch(`${URL_PREFIX}/api/users?username=${username}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
