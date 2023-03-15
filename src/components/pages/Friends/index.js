@@ -11,11 +11,8 @@ const Friends = ({ userId }) => {
       console.log(data);
       setUserFriends(data.friend);
     });
-    
   }, [userId]);
-  console.log(userFriends)
-
-
+  console.log(userFriends);
 
   return (
     <div>
@@ -28,4 +25,3 @@ const Friends = ({ userId }) => {
 };
 
 export default Friends;
-
