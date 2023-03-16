@@ -18,7 +18,7 @@ Don't install! Just [click here](https://friends-in-check.netlify.app/)!
 
 
 ## Contributions
-Andy Barringer - [GitHub](https://github.com/wabarringer)
-Brady Collier - [GitHub](https://github.com/bradyc96)
-Feliclare De Jesus - [GitHub](https://github.com/dejesusf)
-Zazil Gomez - [GitHub](https://github.com/zazgh)
+- Andy Barringer: [GitHub](https://github.com/wabarringer)
+- Brady Collier: [GitHub](https://github.com/bradyc96)
+- Feliclare De Jesus: [GitHub](https://github.com/dejesusf)
+- Zazil Gomez: [GitHub](https://github.com/zazgh)
