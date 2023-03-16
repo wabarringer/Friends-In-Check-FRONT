@@ -74,7 +74,11 @@ const Profile = (props) => {
                   }}
                 />
               </div>
-              <button onClick={uploadImage}>Save</button>
+              <div id="saveButtonDiv">
+                <button id="saveButton" onClick={uploadImage}>
+                  Save
+                </button>
+              </div>
             </div>
 
             <div id="userBio">
