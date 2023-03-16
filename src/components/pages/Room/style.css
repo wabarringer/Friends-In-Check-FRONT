@@ -80,6 +80,21 @@
   border: 2px solid var(--g1);
 }
 
+.video-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 300px;
+}
+
+video {
+  width: 99%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+
+}
+
 #oppPieces,
 #userPieces {
   margin: 5px;
