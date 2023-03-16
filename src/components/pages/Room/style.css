@@ -71,7 +71,7 @@
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
-  resize: none;
+  align-items: top;
   font-size: larger;
 }
 

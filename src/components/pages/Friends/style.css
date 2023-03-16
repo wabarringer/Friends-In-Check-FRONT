@@ -5,15 +5,19 @@
   height: 85vh;
 }
 .userInfoDiv{
-  height: 20vh;
+  height: 10vh;
   margin-bottom: 5px;
   padding: 5px;
   border-radius: 5px;
   background: var(--br2-g);
 }
 
+.userInfoDiv h2 {
+  text-align: center;
+}
+
 .friendsDiv{
-  height: 80vh;
+  height: 90vh;
   margin-top: 5px;
   padding: 5px;
   border-radius: 5px;

@@ -55,6 +55,17 @@ section {
   font-size: 16px;
 }
 
+/* #ficLogo {
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.5;
+  filter: brightness(80%)
+} */
+
 /* =============== mobile =============== */
 @media all and (max-width: 600px) {
   .column {

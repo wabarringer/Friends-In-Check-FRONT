@@ -31,6 +31,7 @@ const Room = ({ socket, username }) => {
     });
     console.log(username);
     console.log(msgInputted);
+    setMsgInputted("");
   };
 
   socket.on("received_message", (newMsg) => {
@@ -129,7 +130,7 @@ const Room = ({ socket, username }) => {
                   <input
                     id="chatInput"
                     type="text"
-                    placeholder="chat with your opponent"
+                    placeholder="chat"
                     onChange={handleChatInput}
                     value={msgInputted}
                   ></input>
