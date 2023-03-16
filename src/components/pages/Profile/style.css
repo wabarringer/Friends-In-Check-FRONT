@@ -1,7 +1,7 @@
 .left {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap; */
+  flex-wrap: wrap;
   width: 40vw;
   height: 87vh;
 }
@@ -80,37 +80,36 @@ h3 {
 /* =============== media query =============== */
 @media all and (max-width: 600px) {
   .column {
-    flex-direction: column;
+    flex-direction: row;
   }
+
   .left {
     border-bottom: 2px solid var(--g2);
     border-right: none;
-    width: 98%;
-    height: 30vh;
+    height: 87vh;
+    width: 40%;
+    margin: 0px 2px 0px 10px;
   }
 
   .right {
-    width: 100%;
-    height: 57vh;
+    height: 87vh;
+    width: 65%;
   }
 
   #profileSection {
     display: flex;
     flex-direction: row;
-    margin: 0px 10px;
-    width: 97%;
-    justify-content: top;
+    margin: 0px;
     align-items: normal;
   }
 
   #feedBody {
-    margin: 10px 10px 0px 10px;
-    width: 100%;
+    margin: 0px;
   }
 
   #avatar {
-    height: 10rem;
-    width: 10rem;
+    height: 20vh;
+    width: 20vh;
   }
 
   #userBio {
