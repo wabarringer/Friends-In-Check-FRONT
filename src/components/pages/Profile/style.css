@@ -59,6 +59,22 @@ h3 {
   text-align: justify;
 }
 
+.profileBtns {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+
+.profileBtns button {
+  padding: 15px 32px;
+  font-size: 16px;
+  color: var(--br2);
+  border: none;
+  border-radius: 5px;
+  background: var(--g1);
+}
+
 /* =============== media query =============== */
 @media all and (max-width: 600px) {
   .column {

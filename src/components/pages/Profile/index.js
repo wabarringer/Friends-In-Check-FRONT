@@ -2,11 +2,13 @@ import React, { useState } from "react";
 // import API from "../../../utils/API";
 import Axios from "axios";
 import "../Profile/style.css";
+import API from "../../../utils/API.js";
 
 const Profile = (props) => {
   const [imageSelected, setImageSelected] = useState("");
   const [publicPhotoUrl, setPublicPhotoUrl] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [bio, setBio] = useState("");
   // const [username, setUsername] = useState("");
 
   const uploadImage = () => {
@@ -28,7 +30,18 @@ const Profile = (props) => {
     );
   };
 
-
+  const handleUpdateUserBio = (e) => {
+    e.preventDefault();
+    const bioObj = {
+      bio: bio
+    };
+    API.editBio(bioObj).then((data) => {
+      if (data.token) {
+        props.setIsEditing(true);
+        props.setBio(data.user.bio);
+      }
+    })
+  }
 
   return (
     <section>
@@ -74,12 +87,16 @@ const Profile = (props) => {
                   }}
                 />
               </div>
-              <button onClick={uploadImage}>Save</button>
+              <div className="profileBtns">
+                <button onClick={uploadImage}>Save Image</button>
+              </div>
             </div>
 
             <div id="userBio">
-              <h3>BIOGRAPHY</h3>
-              {}<button onClick={() => setIsEditing(true)}>Edit</button>
+              {/* <h3>BIOGRAPHY</h3>
+              <div className="profileBtns">
+                <button onClick={handleUpdateUserBio}>Edit</button>
+              </div> */}
             </div>
           </div>
         </div>
