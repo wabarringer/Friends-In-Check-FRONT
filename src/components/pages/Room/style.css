@@ -187,7 +187,7 @@ video {
   }
 
   #chatWindow {
-    height: 50px;
+    height: 24px;
     width: 99%;
   }
 
@@ -201,5 +201,33 @@ video {
     height: 46vh;
     width: 100vw;
     margin: 0px;
+  }
+}
+
+/* =============== mobile =============== */
+@media all and (max-height: 780px) {
+
+  #oppVideo,
+  #userVideo {
+    display: none;
+  }
+
+  #oppPieces,
+  #userPieces {
+    width: 40vw;
+    height: 5vh;
+  }
+
+  #chatWindow {
+    height: 30px;
+    width: 99%;
+  }
+
+  .middleContainer {
+    height: 90vh;
+  }
+
+  .rightcontainer {
+    height: 10vh;
   }
 }
