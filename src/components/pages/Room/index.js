@@ -10,14 +10,7 @@ const Room = ({ socket, username }) => {
   // Emit a join event to the server when a user joins a room on component mount
   useEffect(() => {
     socket.emit("join_room", roomId);
-    socket.on("user array", (receivedArr) => {
-      console.log(receivedArr);
-    });
   }, []);
-
-  socket.on("user-joined", (userFromSocket) => {
-    console.log(`${userFromSocket} has joined the room`);
-  });
 
   const [msgInputted, setMsgInputted] = useState("");
   const [messages, setMessages] = useState([]);
@@ -68,7 +61,7 @@ const Room = ({ socket, username }) => {
                 </div>
                 <div id="oppDiv">
                   <div id="opponent">
-                    <p>oppUser</p>
+                    <p>Opponent</p>
                     <div id="oppVideo">opp video</div>
                     <div id="oppPieces">opp pieces captured</div>
                   </div>
@@ -97,12 +90,13 @@ const Room = ({ socket, username }) => {
               <div id="chatBox">
                 {/* form to send message */}
                 <form onSubmit={sendMsg}>
-                  <input
+                  <textarea
+                    id="chatInput"
                     type="text"
                     placeholder="chat with your opponent"
                     onChange={handleChatInput}
                     value={msgInputted}
-                  ></input>
+                  ></textarea>
                 </form>
               </div>
             </div>

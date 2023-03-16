@@ -15,10 +15,10 @@ import API from "./utils/API";
 import io from "socket.io-client";
 
 // for localhost testing
-const socket = io("http://localhost:3002");
+// const socket = io("http://localhost:3002");
 
 // for production
-// const socket = io("https://fic-socket.herokuapp.com");
+const socket = io("https://fic-socket.herokuapp.com");
 
 function App() {
   const [token, setToken] = useState("");
@@ -99,25 +99,12 @@ function App() {
           />
           <Route
             path={`/room/:roomId`}
-            element={<Room
-              socket={socket}
-              username={username}
-              />
-            }
+            element={<Room socket={socket} username={username} />}
           />
-          <Route
-            path="/profile" element={<Profile
-              username={username}
-              />
-            }
-          />
+          <Route path="/profile" element={<Profile username={username} />} />
           <Route
             path="/friends"
-            element={<Friends
-              userId={userId}
-              username={username} 
-              />
-            }
+            element={<Friends userId={userId} username={username} />}
           />
           <Route
             path="/messages"

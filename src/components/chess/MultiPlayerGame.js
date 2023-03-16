@@ -20,7 +20,6 @@ function MultiPlayerGame({ roomId, username }) {
           (MultiplayerLogic.game1.setScoreBoard = setScoreBoard)
         }
       ></ScoreBoard>
-
       <Game
         playerId={MultiplayerLogic.game1.playerId}
         squares={MultiplayerLogic.game1.squares}
@@ -28,10 +27,12 @@ function MultiPlayerGame({ roomId, username }) {
           (MultiplayerLogic.game1.setGameState = setGameState)
         }
       ></Game>
-      <button onClick={(i) => MultiplayerLogic.resetGame()}>Reset Game</button>
+
+      <button id="resetButton" onClick={(i) => MultiplayerLogic.resetGame()}>
+        Reset Game
+      </button>
     </div>
   );
 }
 
 export default MultiPlayerGame;
-
