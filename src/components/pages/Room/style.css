@@ -50,6 +50,8 @@
   border: 2px solid var(--g1);
   border-radius: 5px;
   background-color: white;
+  color: var(--g1);
+  font-size: larger;
 }
 
 #timer {
@@ -69,6 +71,8 @@
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
+  resize: none;
+  font-size: larger;
 }
 
 #oppVideo,
@@ -76,6 +80,20 @@
   margin: 5px 5px 0px 5px;
   height: 20vh;
   border: 2px solid var(--g1);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 300px;
+}
+
+video {
+  width: 99%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 5px;
+  transform: rotateY(180deg);
 }
 
 #oppPieces,

@@ -1,5 +1,5 @@
 import React from "react";
-import '../Messages/style.css';
+import "../Messages/style.css";
 
 const Messages = () => {
   return (
@@ -7,12 +7,12 @@ const Messages = () => {
       <div className="column">
         <div className="msgPageDiv">
           <div className="allMessagesDiv">
-            <h3>all messages/preview</h3>
+            <h3>All messages/preview</h3>
           </div>
 
           <div className="directMessageDiv">
             <div id="msgWindow">
-              <h3>individual message with friend</h3>
+              <h3>Individual message with friend</h3>
             </div>
             <div id="msgInput">
               {/* <form onSubmit={sendMsg}>
