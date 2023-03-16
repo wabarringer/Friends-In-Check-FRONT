@@ -23,7 +23,7 @@
   height: 96%;
   margin: 5px 5px 5px 20px;
   padding: 5px;
-  background-color: white;
+  background: var(--br2-g);
   border-radius: 5px;
 
 }
@@ -33,10 +33,11 @@
   height: 96%;
   margin: 5px 20px 5px 10px;
   padding: 5px;
-  background-color: white;
+  background: var(--br2-g);
   border-radius: 5px;
 }
 
+h2,
 h3 {
   text-align: center;
   padding-bottom: 1vh;
@@ -51,7 +52,6 @@ h3 {
   background-color: white;
   border: 2px solid var(--g1);
   border-radius: 50%;
-
 }
 
 #userBio {
@@ -61,10 +61,13 @@ h3 {
 
 /* =============== media query =============== */
 @media all and (max-width: 600px) {
+  .column {
+    flex-direction: column;
+  }
   .left{
     border-bottom: 2px solid var(--g2);
     border-right: none;
-    width: 100%;
+    width: 98%;
     height: 30vh;
   }
 
@@ -76,14 +79,14 @@ h3 {
   #profileSection {
     display: flex;
     flex-direction: row;
-    margin: 1vw 1vw 1vw 5vw;
-    width: 100%;
+    margin: 0px 10px;
+    width: 97%;
     justify-content: top;
     align-items: normal;
   }
   
   #feedBody {
-    margin: 2vh 2vw;
+    margin: 10px 10px 0px 10px;
     width: 100%;
   }
 

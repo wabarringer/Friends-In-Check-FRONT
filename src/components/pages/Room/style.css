@@ -70,7 +70,7 @@
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
-  resize: none;
+  align-items: top;
 }
 
 #oppVideo,
@@ -81,7 +81,7 @@
 }
 
 .video-grid {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-auto-rows: 300px;
 }
@@ -92,7 +92,6 @@ video {
   object-fit: cover;
   border-radius: 5px;
   transform: rotateY(180deg);
-
 }
 
 #oppPieces,
