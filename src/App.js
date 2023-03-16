@@ -99,27 +99,17 @@ function App() {
           />
           <Route
             path={`/room/:roomId`}
-            element={<Room
-              socket={socket}
-              username={username}
-              />
-            }
+            element={<Room socket={socket} username={username} />}
           />
           <Route
-            path="/profile" element={<Profile
-              username={username}
-              userId={userId}
-              token={token}
-              />
+            path="/profile"
+            element={
+              <Profile username={username} userId={userId} token={token} />
             }
           />
           <Route
             path="/friends"
-            element={<Friends
-              userId={userId}
-              username={username} 
-              />
-            }
+            element={<Friends userId={userId} username={username} />}
           />
           <Route
             path="/messages"

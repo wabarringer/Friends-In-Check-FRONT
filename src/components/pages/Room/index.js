@@ -10,14 +10,7 @@ const Room = ({ socket, username }) => {
   // Emit a join event to the server when a user joins a room on component mount
   useEffect(() => {
     socket.emit("join_room", roomId);
-    socket.on("user array", (receivedArr) => {
-      console.log(receivedArr);
-    });
   }, []);
-
-  socket.on("user-joined", (userFromSocket) => {
-    console.log(`${userFromSocket} has joined the room`);
-  });
 
   const [msgInputted, setMsgInputted] = useState("");
   const [messages, setMessages] = useState([]);
@@ -56,7 +49,10 @@ const Room = ({ socket, username }) => {
   useEffect(() => {
     const getUserMedia = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
         setUserStream(stream);
         const videoElement = document.createElement("video");
         videoElement.srcObject = stream;
@@ -96,15 +92,15 @@ const Room = ({ socket, username }) => {
                 <div id="userDiv">
                   <div id="user">
                     <p>{username}</p>
-                    <div id="userVideo">user video</div>
-                    <div id="userPieces">user pieces captured</div>
+                    <div id="userVideo"></div>
+                    <div id="userPieces"></div>
                   </div>
                 </div>
                 <div id="oppDiv">
                   <div id="opponent">
-                    <p>oppUser</p>
-                    <div id="oppVideo">opp video</div>
-                    <div id="oppPieces">opp pieces captured</div>
+                    <p>Opponent</p>
+                    <div id="oppVideo"></div>
+                    <div id="oppPieces"></div>
                   </div>
                 </div>
               </div>
@@ -132,6 +128,7 @@ const Room = ({ socket, username }) => {
                 {/* form to send message */}
                 <form onSubmit={sendMsg}>
                   <input
+                    id="chatInput"
                     type="text"
                     placeholder="chat"
                     onChange={handleChatInput}

@@ -23,9 +23,8 @@ const Friends = ({ userId, username }) => {
   const findUser = (e) => {
     e.preventDefault();
     API.getUsersByUsername(searchedUser).then((data) => {
-      const friend = data.username.find((f) => f.username === searchedUser);
-      if (friend) {
-        setUserFriends([friend]);
+      if (data.username === searchedUser) {
+        setUserFriends([data.friend]);
       }
     });
   };

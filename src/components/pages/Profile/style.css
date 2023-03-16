@@ -1,4 +1,4 @@
-.left{
+.left {
   /* display: flex;
   flex-direction: row;
   flex-wrap: wrap; */
@@ -25,7 +25,6 @@
   padding: 5px;
   background: var(--br2-g);
   border-radius: 5px;
-
 }
 
 #feedBody {
@@ -54,6 +53,24 @@ h3 {
   border-radius: 50%;
 }
 
+#saveButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#saveButton {
+  background-color: var(--g1);
+  border: none;
+  color: var(--br2);
+  padding: 7px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
 #userBio {
   padding: 2vh 0vw;
   text-align: justify;
@@ -80,7 +97,7 @@ h3 {
   .column {
     flex-direction: column;
   }
-  .left{
+  .left {
     border-bottom: 2px solid var(--g2);
     border-right: none;
     width: 98%;
@@ -100,7 +117,7 @@ h3 {
     justify-content: top;
     align-items: normal;
   }
-  
+
   #feedBody {
     margin: 10px 10px 0px 10px;
     width: 100%;

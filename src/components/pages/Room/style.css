@@ -49,6 +49,9 @@
   height: 78vh;
   border: 2px solid var(--g1);
   border-radius: 5px;
+  background-color: white;
+  color: var(--g1);
+  font-size: larger;
 }
 
 #timer {
@@ -69,6 +72,7 @@
   width: 100%;
   font-size: 16px;
   align-items: top;
+  font-size: larger;
 }
 
 #oppVideo,
@@ -79,7 +83,7 @@
 }
 
 .video-grid {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-auto-rows: 300px;
 }
@@ -90,7 +94,6 @@ video {
   object-fit: cover;
   border-radius: 5px;
   transform: rotateY(180deg);
-
 }
 
 #oppPieces,
