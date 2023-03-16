@@ -54,6 +54,26 @@ const API = {
       },
     }).then((res) => res.json());
   },
+  addBio: (bioObj, token) => {
+    return fetch(`${URL_PREFIX}/api/users`, {
+      method: "POST",
+      body: JSON.stringify(bioObj),
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${token}`
+      }
+    }).then(res => res.json())
+  },
+  editBio: (bioObj, token) => {
+    return fetch(`${URL_PREFIX}/api/users`, {
+      method: "PUT",
+      body: JSON.stringify(bioObj),
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${token}`
+      }
+    }).then(res => res.json())
+  }
 };
 
 export default API;

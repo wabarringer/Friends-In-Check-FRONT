@@ -37,7 +37,7 @@ const Friends = ({ userId, username }) => {
       <div className="column">
         <div className="friendPageDiv">
           <div className="userInfoDiv">
-            <h2>{username}</h2>
+            <h2>{username}'s friends</h2>
             <input
               type="input"
               id="user-search"
@@ -49,7 +49,6 @@ const Friends = ({ userId, username }) => {
           </div>
 
           <div className="friendsDiv">
-            <h2>Friends List</h2>
             {userFriends.map((friend) => (
               <p>{friend.username}</p>
             ))}

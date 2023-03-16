@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Home/style.css";
 import chessboardHomeHost from "../../../img/join-card02.png";
 import chessboardHomeJoin from "../../../img/host-card02.png";
+import ficLogo from "../../../img/friends-in-check-title-logo.png";
 
 const Home = ({ roomId, isLoggedIn, socket, username }) => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
     <section>
       <div className="column">
         <div className="box">
-          <img src={chessboardHomeHost} alt="chessboard with pawn" />
+          <img src={chessboardHomeHost} alt="close up view of a white king chess piece" />
           <div id="hostRoomDiv">
             <button onClick={joinByRoomId}>HOST A ROOM</button>
           </div>
@@ -48,7 +49,7 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
 
         <div className="box">
           <div>
-            <img src={chessboardHomeJoin} alt="chessboard with a pawn" />
+            <img src={chessboardHomeJoin} alt="close up view of a black king chess piece" />
           </div>
           <div id="joinFormDiv">
             <form onSubmit={onSubmitHandler}>
@@ -64,6 +65,7 @@ const Home = ({ roomId, isLoggedIn, socket, username }) => {
           </div>
         </div>
       </div>
+      {/* <img id="ficLogo" src={ficLogo} alt="friends in check logo shield" /> */}
     </section>
   );
 };

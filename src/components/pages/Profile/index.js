@@ -6,6 +6,7 @@ import "../Profile/style.css";
 const Profile = (props) => {
   const [imageSelected, setImageSelected] = useState("");
   const [publicPhotoUrl, setPublicPhotoUrl] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
   // const [username, setUsername] = useState("");
 
   const uploadImage = () => {
@@ -23,8 +24,11 @@ const Profile = (props) => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      }
+    );
   };
+
+
 
   return (
     <section>
@@ -32,7 +36,7 @@ const Profile = (props) => {
         <div className="left">
           <div id="profileSection">
             <div>
-              <h3>{props.username}</h3>
+              <h2>{props.username}</h2>
               <div id="avatar">
                 <label htmlFor="profile-image">
                   {publicPhotoUrl ? (
@@ -73,11 +77,16 @@ const Profile = (props) => {
               <button onClick={uploadImage}>Save</button>
             </div>
 
-            <div id="userBio">USER BIO</div>
+            <div id="userBio">
+              <h3>BIOGRAPHY</h3>
+              {}<button onClick={() => setIsEditing(true)}>Edit</button>
+            </div>
           </div>
         </div>
         <div className="right">
-          <div id="feedBody">STATS FEED</div>
+          <div id="feedBody">
+            <h3>GAME STATS</h3>
+          </div>
         </div>
       </div>
     </section>
